@@ -2,6 +2,6 @@
 
 * [Introduction](README.md)
 * [Supervised Learning](chapter1.md)
-* [Regression](regression.md)
-* Unsupervised Learning
+  * [Naives Bayes Classification](chapter1/naives-bayes-classification.md)
+* [Unsupervised Learning](unsupervised-learning.md)
 
