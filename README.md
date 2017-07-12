@@ -1,3 +1,4 @@
-# My Awesome Book
+# ML\_Notes
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+The purpose of this GitBook is to write about some of the ML Algorithms I learned about during my classes at EPITA.
+
