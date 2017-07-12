@@ -1,6 +1,4 @@
-## Naives Bayes Classification
-
-$$x = y$$
+## Naives Bayes Classificatio
 
 
 
