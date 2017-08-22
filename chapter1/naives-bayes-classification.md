@@ -1,4 +1,4 @@
-## Naives Bayes Classificatio
+## Naives Bayes Classification
 
 
 
