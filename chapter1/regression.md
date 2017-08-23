@@ -30,7 +30,7 @@ $$\frac{1}{n} \sum_{i=1}^{n} (\hat{y}^{(i)} - y^{(i)})^2$$**  **
 
 ###### Gradient descent:
 
-One way to minimize this cost function is through _gradient descent. _We take small step with a rate $$\alpha$$ to update our weights.
+One way to minimize this cost function is through \_gradient descent. \_We take small step with a rate $$\alpha$$ to update our weights.
 
 First, we derive the cost function:
 
@@ -42,15 +42,13 @@ $$\theta_j := \theta_j - \alpha \frac{\partial}{\partial{\theta_j}} J(\theta)$$
 
 ###### Normal equations:
 
-Another way of minimizing the cost function is by using the normal equations. We look for a point where the gradient is equal to zero. Since the cost function is convex, this point will be a local minimum. Using calculus, solving $$\nabla_\theta J(\theta) = 0$$ gives us 
+Another way of minimizing the cost function is by using the normal equations. We look for a point where the gradient is equal to zero. Since the cost function is convex, this point will be a local minimum. Using calculus, solving $$\nabla_\theta J(\theta) = 0$$ gives us
 
 $$\theta = (X^T X)^{-1} X^T y$$
 
 ---
 
 ### Logistic Regression
-
-
 
 
 
