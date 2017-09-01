@@ -8,9 +8,11 @@
 
 Linear regression is used to predict a variable which output is a continuous. For instance, it can be used to predict the price of a house given some of its features. It performs well when the output variable $$y$$ is a linear combination of the features. Otherwise, it will perform poorly.
 
-Its goal is to draw a line which fits the best the data.
+Its goal is to draw a line which fits the data in the best way possible.
 
 ![](/assets/linear_regression.png)
+
+
 
 #### **II. Model and cost function**
 
@@ -22,11 +24,13 @@ Since we want a line which fits the data in the best way,  we need to have a fun
 
 ##### **Cost:**
 
-Our goal is to **minimize** the distance between the data points and the line itself. We want to find the best $$\theta$$ so that our hypothesis matches the output in the best way possible. In other words, we want to **maximize** the likelihood: 
+Our goal is to **minimize** the distance between the data points and the line itself. We want to find the best $$\theta$$ so that our hypothesis matches the output in the best way possible. In other words, we want to **maximize** the likelihood:
+
+
 $$
 L(\theta | X, Y) = P(Y|X, \theta) = \prod_{i = 1}^{n} P(y^{(i)} | x^{(i)}, \theta)
 $$
- 
+
 
 Since we want to maximize the likelihood, we will choose the parameters that give us the highest probabilities:
 
@@ -45,7 +49,9 @@ By defining $$p(y^{(i)}|x^{(i)}) = \mathcal{N}(\theta^T x^{(i)}, \sigma^2)$$,  a
 $$
 J(\theta) = \frac{1}{2} \sum_{i=1}^{n} (y^{(i)} - h_\theta^{(i)})^2
 $$
-**  **
+
+
+---
 
 ##### **Optimization:**
 
@@ -93,11 +99,15 @@ If we used linear regression for classification, it would perform poorly and giv
 
 ###### Cost function:
 
-Let 
+Let
+
+
 $$
 h(x) = f(\theta^T x) = \frac{1}{1 + e^{-\theta^T x}}
 $$
- be our hypothesis function and let's assume that $$p(y = 1 | x) = h_\theta(x)$$ and $$p(y = 0|x) = 1 - h_\theta}(x)$$ .
+
+
+be our hypothesis function and let's assume that $$p(y = 1 | x) = h_\theta(x)$$ and $$p(y = 0|x) = 1 - h_\theta(x)$$ .
 
 It can also be written: $$p(y|x, \theta) = (h_\theta(x))^y (1 - h_\theta(x))^{1 - y}$$.
 
@@ -116,4 +126,6 @@ $$
 ---
 
 
+
+[^1]: Image taken from wikipedia
 
