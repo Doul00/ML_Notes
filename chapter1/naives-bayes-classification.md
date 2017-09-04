@@ -20,7 +20,7 @@ This example comes from the titanic dataset of Kaggle. In this example, the deci
 
 #### II. Algorithms
 
-There are many algorithms used to build decision trees. Here, we will take a look at the **Gini Index** and the** Information Gain **methods.
+There are many algorithms used to build decision trees. Here, we will take a look at the **Gini Index** and the** Information Gain **methods. Other methods can be found [here](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/#one).
 
 ###### Gini Index:
 
@@ -50,6 +50,8 @@ This method works by calculating the entropy for each node. If a node is homogen
 $$
 Entropy = -p log_2 p -q log_2 q
 $$
+
+
 The steps to calculate entropy for a split are:
 
 * Calculate entropy for the parent node
@@ -68,6 +70,31 @@ In our previous example, we have the following results:
 Decision Trees tend to overfit very quickly. In the worst case there can be a node for each training example, resulting in a 100% accuracy in the training set but bad performance with the test set.
 
 One way to prevent this is by setting constraints on the trees:
+
+* Maximum tree depth: Prevents the tree from generating too many sub-nodes and learning specific relations, resulting in an overfit.
+* Minimum number of samples for splitting a node. The value shouldn't be too high, otherwise underfit can occur.
+* Minimum number of samples for a leaf.
+* Maximum number of features used for splits.
+* Pruning the tree. Nodes which do not provide much discriminative information are removed. More [here.](https://en.wikipedia.org/wiki/Pruning_%28decision_trees%29)
+
+---
+
+### Ensemble Methods
+
+#### I. Applications
+
+Ensemble methods is the use of multiple machine learning algorithms in order to get better results. They combine multiple hypothesis to form a better one. The ensemble is itself a machine learning algorithm since it can be trained and then used to make predictions. There many methods used for ensemble learning, such as voting, bagging, stacking and boosting. Later, we will see the most used ensemble algorithms.
+
+###### Voting:
+
+In voting, the first step is to create multiple classification models using the training dataset. Once the models are trained, different methods are used to classify the test examples:
+
+* **Majority voting:** In this case, every model will perform the classification on the example. The output will correspond to the one that receives more than 50% of the votes.
+* **Weighted voting: **In this case, each model has a weight that will make its vote more or less important. It is useful to make the better models more important.
+
+###### Stacking:
+
+
 
 ---
 
@@ -92,6 +119,18 @@ The greater of value of K, the less vulnerable the algorithm is to the noise. Ho
 One way to make the algorithm perform better is to weight the neighbours' participation by taking into account their distance to the unknown data point.
 
 It is also good to apply dimensionality reduction techniques in order to prevent the curse of dimensionality when working in higher dimensions.
+
+---
+
+### Support Vector Machines
+
+#### I. Applications
+
+SVMs are one of the most powerful machine learning algorithms. They can perform linear classification as well as non-linear classification. Support Vector Machines can also be used for regression.
+
+Basically, the goal of the SVM is to draw a hyperplane which will separate the data for classification. It does this by finding the best hyperplane, i.e the one with margins that allow a good separation of the data.
+
+![](/assets/svm.png)
 
 [^1]: [Can be found here ](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/#one)
 
