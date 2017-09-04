@@ -21,5 +21,9 @@ The idea behind stacking is to train multiple algorithms on the dataset and to g
 
 ###### Bagging \(bootstrap aggregating\):
 
+In bagging, models are trained on random subsets of the original data. The sampling is done by replacement, which means an example might be repeated. After training, the models are combined using averaging or voting techniques. Bagging reduces variance and helps avoid overfitting.
+
+###### Boosting:
+
 
 
