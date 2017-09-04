@@ -25,5 +25,11 @@ In bagging, models are trained on random subsets of the original data. The sampl
 
 ###### Boosting:
 
+### II. Algorithms
+
+#### I. Random Forest
+
+#### II. Ada boost
+
 
 
