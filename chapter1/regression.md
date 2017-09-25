@@ -12,7 +12,7 @@ Its goal is to draw a line which fits the data in the best way possible.
 
 ![](/assets/linear_regression.png)
 
-
+_Source: Wikipedia_
 
 #### **II. Model and cost function**
 
@@ -124,8 +124,6 @@ $$
 
 
 ---
-
-
 
 [^1]: Image taken from wikipedia
 

@@ -25,9 +25,19 @@ In bagging, models are trained on random subsets of the original data. The sampl
 
 ###### Boosting:
 
+The goal of boosting is to learn weak classifiers and to combine them into a strong learner. It creates 
+
 ### II. Algorithms
 
 #### I. Random Forest
+
+The Random Forest algorithm is a bagging of multiple decision trees. It is a way of averaging the decision trees and preventing overfitting, while performing better classification/regression tasks.
+
+###### Algorithm:
+
+The training phase applies the principle of bagging. Each of the decision trees is trained on a sub-sample of the data. During the training phase, another sub-sampling is done when choosing the splits for the trees: A random sample of features are selected for the splits. By doing this, features which are important for the prediction will be represented in many trees, creating a correlation between them.After training, the prediction for the new examples can be made by averaging the results of the decision trees or by using a majority voting method. 
+
+This method performs well since it reduces the variance of the model, without increasing the bias.
 
 #### II. Ada boost
 

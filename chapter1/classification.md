@@ -16,6 +16,8 @@ Trees where the output is a continuous value are called _Regression Trees._
 
 ![](/assets/decision_tree.png)
 
+_Source: Wikipedia_
+
 This example comes from the titanic dataset of Kaggle. In this example, the decision tree outputs the class of a passenger \(survived or died\). The decision is made by looking at each of the passenger's attributes \(sex, age, number of siblings/spouses\) and by comparing the current passenger's attributes, the class is chosen. This example shows that the critical point of this algorithm is the selection of **discriminant features and the conditions to apply.**
 
 #### II. Algorithms
@@ -32,7 +34,7 @@ It can be computed using the formula: $$G = p^2 + q^2$$ .
 
 The Gini score is computed for each sub-node and then weighted using the number of instances.
 
-![](/assets/Screen Shot 2017-09-02 at 18.00.08.png)
+![](/assets/Screen Shot 2017-09-02 at 18.00.08.png)_Source: Analytics Vidhya_
 
 In this example[^1], we for the Gender, we have:
 
@@ -79,12 +81,6 @@ One way to prevent this is by setting constraints on the trees:
 
 ---
 
-### Ensemble Methods
-
-#### 
-
----
-
 ### K-Nearest Neighbours
 
 #### I. Applications
@@ -92,6 +88,8 @@ One way to prevent this is by setting constraints on the trees:
 The KNN algorithm can be used both for classification and regression purposes. In the case of classification, the output is a class membership. When used for regression, the output is a continuous value computed using average the neighbours's value.
 
 ![](/assets/knn.png)
+
+_Source: coxdocs.org_
 
 The "**K" **parameters indicates the number of neighbours chosen in order** **to determine the class of the unknown object.
 
