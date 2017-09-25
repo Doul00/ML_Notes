@@ -21,34 +21,38 @@ The idea behind stacking is to train multiple algorithms on the dataset and to g
 
 ###### Bagging \(bootstrap aggregating\):
 
-In bagging, models are trained on random subsets of the original data. The sampling is done by replacement, which means an example might be repeated. After training, the models are combined using averaging or voting techniques. Bagging reduces variance and helps avoid overfitting.
+In bagging, models are trained on random subsets of the original data. The sampling is done by replacement, which means an example might be repeated. After training, the models are combined using averaging or voting techniques. Bagging reduces variance \(for a little bias\) and helps avoid overfitting.
 
 ###### Boosting:
 
-The goal of boosting is to learn weak classifiers and to combine them into a strong learner. Every model has a weight assigned to it, indicating how it influences the final decision.
+The goal of boosting is to learn weak classifiers and to combine them into a strong learner. A weak classifier is simply a classifier which performs poorly. Every model has a weight assigned to it, indicating how it influences the final decision. 
 
 The algorithm works this way: Let's take $$n$$ models and mark them as $$h_1, ..., h_n$$
 
 * First, $$h_1$$ is trained on a sub-sample of the data and makes predictions on the rest of the data
 * The following step is then repeated for each model $$h_i$$:
-  * Take the  errors from the previous model and assign more weight to them, so that the next model will try to predict them well.
+
+  * Take the errors from the previous model and assign more weight to them
+
+  * Take a random sample of the data. The data points with higher weights \(the misclassified ones\) will have more chances to appear into the new set. Having them in the new set will make the new model train on them, thus learn to classify them better
+
+  * Create the new model $$h_i$$
 
   * Make new predictions using $$h_i$$
+
 * When you reach the limit of $$n$$ models, combine them to create a stronger learner.
 
 ![](/assets/boosting.png)
 
 _Source: Analytics Vidhya_
 
-
-
 For instance, in this example, we want to build a classifier for pluses and minuses.
 
 * We start with D1 with is trained and then performs predictions. As we can see, it misclassified 3 pluses as minuses.
 * So before creating D2, we give a higher weight to those misclassified examples.
 * We add D2 and we perform a new prediction. This time is classified the 3 pluses very well but misclassifies the red minuses.
-* We repeat the algorithm for D3
-* Finally, we  weight the three models and combine them to create our final classifier.
+* We repeat the algorithm for D3.
+* Finally, we  weight the three models and combine them to create our final classifier. The weights are assigned in a way that the classification error at step $$i$$ is minimized.
 
 ### II. Algorithms
 
@@ -60,9 +64,16 @@ The Random Forest algorithm is a bagging of multiple decision trees. It is a way
 
 The training phase applies the principle of bagging. Each of the decision trees is trained on a sub-sample of the data. During the training phase, another sub-sampling is done when choosing the splits for the trees: A random sample of features are selected for the splits. By doing this, features which are important for the prediction will be represented in many trees, creating a correlation between them.After training, the prediction for the new examples can be made by averaging the results of the decision trees or by using a majority voting method.
 
-This method performs well since it reduces the variance of the model, without increasing the bias.
+This method performs well since it reduces the _variance of the model_ but increases _the bias a little bit_.  Indeed, the weak learners are \(detailed\) decision trees trained on the data, thus they have low bias \(they make a few mistakes\) but high variance \(they are sensitive to noise\). By averaging them, the variance is reduced.
 
-#### II. Ada boost
+#### II. AdaBoost \(Adaptative Boosting\)
+
+The boosting methods allow to reduce bias while increasing the variance a bit. It is best to use small trees which have high bias \(since they make a lot of errors\) but small variance.
+
+Why is AdaBoost mostly used with decision trees? There are two main reasons for this:
+
+* First, the training phase of the weak learners must be quick. Indeed, some models can contain more than 1000 trees, so it is important to have a quick training phase.
+* Secondly, decision trees are non-linear models. AdaBoost performs poorly with linear models.
 
 
 
