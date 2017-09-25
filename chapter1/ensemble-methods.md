@@ -25,7 +25,7 @@ In bagging, models are trained on random subsets of the original data. The sampl
 
 ###### Boosting:
 
-The goal of boosting is to learn weak classifiers and to combine them into a strong learner. A weak classifier is simply a classifier which performs poorly. Every model has a weight assigned to it, indicating how it influences the final decision. 
+The goal of boosting is to learn weak classifiers and to combine them into a strong learner. A weak classifier is simply a classifier which performs poorly. Every model has a weight assigned to it, indicating how it influences the final decision.
 
 The algorithm works this way: Let's take $$n$$ models and mark them as $$h_1, ..., h_n$$
 
@@ -36,7 +36,7 @@ The algorithm works this way: Let's take $$n$$ models and mark them as $$h_1, ..
 
   * Take a random sample of the data. The data points with higher weights \(the misclassified ones\) will have more chances to appear into the new set. Having them in the new set will make the new model train on them, thus learn to classify them better
 
-  * Create the new model $$h_i$$
+  * Choose the new model $$h_i$$ by choosing the one which performs the best
 
   * Make new predictions using $$h_i$$
 
@@ -74,6 +74,21 @@ Why is AdaBoost mostly used with decision trees? There are two main reasons for 
 
 * First, the training phase of the weak learners must be quick. Indeed, some models can contain more than 1000 trees, so it is important to have a quick training phase.
 * Secondly, decision trees are non-linear models. AdaBoost performs poorly with linear models.
+
+###### Algorithm:
+
+Let's suppose we have a set of weak classifiers $$k_1, ..., k_n$$. Each classifier produces an output $$h_k(x)$$ which correspond to a positive output or a negative output.
+
+The final output of the classifier is: $$H(x) = \sum_{i=1}^n \alpha_i h_i(x)$$  which $$\alpha_i$$ being the weight of the weak classifier. At the beginning, all the weak learners have the same weight.
+
+* The classifiers are trained one at a time. When the training is done, the weight for each of the examples is computed, the higher weights being assigned to the misclassified examples.
+* The classifier having the best performance on the current training set is chosen for the current iteration.
+
+* At each step, the weight $$\alpha_i$$ of the chosen classifier is computed based on its error rate. The formula is: 
+  $$
+  \alpha_i = \frac{1}{2} ln(\frac{(1-\epsilon_i)}{\epsilon_i})
+  $$
+     with $$\epsilon_i$$ the error rate \(number of misclassifications divided by the total number of examples\). From this formula, we can see that high error rates will yield negative values of $$\alpha_i$$ while small error rates yield positive values. If $$\epsilon_i = 0.5$$, the weight is null.
 
 
 
