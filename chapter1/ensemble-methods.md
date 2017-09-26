@@ -21,7 +21,7 @@ The idea behind stacking is to train multiple algorithms on the dataset and to g
 
 ###### Bagging \(bootstrap aggregating\):
 
-In bagging, models are trained on random subsets of the original data. The sampling is done by replacement, which means an example might be repeated. After training, the models are combined using averaging or voting techniques. Bagging reduces variance \(for a little bias\) and helps avoid overfitting.
+In bagging, models are trained on random subsets of the original data. The sampling is done by replacement, which means an example might be repeated. After training, the models are combined using averaging or voting techniques. _Bagging reduces variance and helps avoid overfitting_.
 
 ###### Boosting:
 
@@ -68,7 +68,7 @@ This method performs well since it reduces the _variance of the model_ but incre
 
 #### II. AdaBoost \(Adaptative Boosting\)
 
-The boosting methods allow to reduce bias while increasing the variance a bit. It is best to use small trees which have high bias \(since they make a lot of errors\) but small variance.
+The boosting methods allows to _reduce bias_. It is best to use small trees which have high bias \(since they make a lot of errors\) but small variance.
 
 Why is AdaBoost mostly used with decision trees? There are two main reasons for this:
 
@@ -84,11 +84,15 @@ The final output of the classifier is: $$H(x) = \sum_{i=1}^n \alpha_i h_i(x)$$  
 * The classifiers are trained one at a time. When the training is done, the weight for each of the examples is computed, the higher weights being assigned to the misclassified examples.
 * The classifier having the best performance on the current training set is chosen for the current iteration.
 
-* At each step, the weight $$\alpha_i$$ of the chosen classifier is computed based on its error rate. The formula is: 
+* At each step, the weight $$\alpha_i$$ of the chosen classifier is computed based on its error rate. The formula is:
+
+
   $$
   \alpha_i = \frac{1}{2} ln(\frac{(1-\epsilon_i)}{\epsilon_i})
   $$
-     with $$\epsilon_i$$ the error rate \(number of misclassifications divided by the total number of examples\). From this formula, we can see that high error rates will yield negative values of $$\alpha_i$$ while small error rates yield positive values. If $$\epsilon_i = 0.5$$, the weight is null.
+
+
+  with $$\epsilon_i$$ the error rate \(number of misclassifications divided by the total number of examples\). From this formula, we can see that high error rates will yield negative values of $$\alpha_i$$ while small error rates yield positive values. If $$\epsilon_i = 0.5$$, the weight is null.
 
 
 
