@@ -44,15 +44,11 @@ In this example[^1], we for the Gender, we have:
 
 For the split on class, the final  value is 0.51. Thus, we split on Gender.
 
+
+
 ###### Information Gain:
 
 This method works by calculating the entropy for each node. If a node is homogeneous, the entropy is equal to zero and when it is equal to one in the worst case \(50% of class 1 in the node and 50% of class 2\). The entropy can be calculated using the formula:
-
-
-$$
-Entropy = -p log_2 p -q log_2 q
-$$
-
 
 The steps to calculate entropy for a split are:
 
@@ -67,7 +63,9 @@ In our previous example, we have the following results:
 * Entropy for male split: $$-0.65log_2(0.65) -0.35log_2(0.35) = 0.93$$
 * Weighted entropy of both sub nodes: $$0.86$$
 
-###### Prevent overfitting:
+###### 
+
+###### Preventing overfit:
 
 Decision Trees tend to overfit very quickly. In the worst case there can be a node for each training example, resulting in a 100% accuracy in the training set but bad performance with the test set.
 
@@ -115,7 +113,79 @@ SVMs are one of the most powerful machine learning algorithms. They can perform 
 
 Basically, the goal of the SVM is to draw a hyperplane which will separate the data for classification. It does this by finding the best hyperplane, i.e the one with margins that allow a good separation of the data.
 
+An excellent tutorial about the maths behind SVMs can be found here: [https://www.svm-tutorial.com/](https://www.svm-tutorial.com/). I will skip most of the details in this tutorial.
+
+#### II. Algorithm
+
+##### I. When the data is linearly separable
+
+###### Maximum Margin Classifier
+
+When the data is linearly separable, the goal is to compute find the optimal hyperplane separating the data. To find the hyperplane with the biggest margin, we first select two hyperplanes with no data points between them and we maximise the distance between them. Those two hyperplanes are delimited by the data points lying on the margin. Those points are called the **support vectors. **In the following example, points A, B and C are the support vectors. This example shows us that the classification power of the SVM **depends a lot on the position of the support vectors**. This kind of SVM are called **Maximum Margin Classifiers.**
+
+![](/assets/support_vectors.png)
+
+_Source: quantstart.com_
+
+
+
+Let's define our hyperplanes' equations: we will have $$W^T x + b = \delta $$ for the first hyperplane, $$H_0$$, and $$w^T x + b = - \delta $$ for the second hyperplane, $$H_1$$. Let's also suppose that we have a binary classification problem, with two classes, i.e $$y(x) = 1$$ or $$y(x) = -1$$.
+
+Thus, we want, for all $$x_i$$ in the data:
+
+
+$$
+W^T x_i + b \ge \delta \text{ or }  W^T x_i + b \le -\delta
+$$
+ 
+
+which means that each point will be either on one side of $$H_1$$or on the other side of $$H_0$$.
+
+To classify a new example $$ x^* $$, we calculate $$W^T x^* + b = y^*$$ . If $$y* \le -\delta $$ then the new example belongs to one class \(or to the other class if $$ y^* \ge \delta $$\).
+
 ![](/assets/svm.png)
+
+If we multiply the two-sides by $$y_i$$ and combine the two equations, we find that, for all $$x_i$$:
+
+
+$$
+y_i(W^T x_i + b) \ge \delta
+$$
+and the margin can be computed as:
+
+
+$$
+m = \frac{2}{||w||}
+$$
+with $$w$$ being the normal unit vector to one of the hyperplanes. The margin will grow when the norm of $$w$$ will decrease. Thus maximizing the margin and minimizing the norm are the same things. Finally, we obtain the following optimization problem:
+
+
+$$
+\text{minimize in } (w, b) \\ ||w|| \\  \text{subject to }  y_i(W^T x_i + b) \ge \delta \\ \forall x_i \text{ in } i\text{ ,..., } n
+$$
+Solving this problem gives us the optimal hyperplane.$$ $$
+
+
+
+###### Soft Margin Classifier
+
+As we already saw above, the SVM built by looking for the maximum margin is very sensitive to the support vectors.
+
+![](/assets/svm-smc.png)
+
+_Source: quantstart.com_
+
+As show in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM.
+
+##### $$ $$II. When the data is not linearly separable
+
+##### 
+
+$$ $$
+
+$$ $$
+
+
 
 [^1]: [Can be found here ](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/#one)
 
