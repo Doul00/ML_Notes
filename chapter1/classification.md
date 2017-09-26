@@ -119,7 +119,7 @@ An excellent tutorial about the maths behind SVMs can be found here: [https://ww
 
 ###### Maximum Margin Classifier
 
-When the data is linearly separable, the goal is to compute find the optimal hyperplane separating the data. To find the hyperplane with the biggest margin, we first select two hyperplanes with no data points between them and we maximise the distance between them. Those two hyperplanes are delimited by the data points lying on the margin. Those points are called the **support vectors. **In the following example, points A, B and C are the support vectors. This example shows us that the classification power of the SVM **depends a lot on the position of the support vectors**. This kind of SVM are called **Maximum Margin Classifiers.**
+When the data is linearly separable, the goal is to compute find the optimal hyperplane separating the data. To find the hyperplane with the biggest margin, we first select two hyperplanes with no data points between them and we maximise the distance between them. Those two hyperplanes are delimited by the data points lying on the margin. Those points are called the **support vectors. **In the following example, points A, B and C are the support vectors. This example shows us that the classification power of the SVM **depends a lot on the position of the support vectors**. This kind of SVM are called _Maximum Margin Classifiers_**.**
 
 ![](/assets/support_vectors.png)
 
@@ -128,6 +128,8 @@ _Source: quantstart.com_
 Let's define our hyperplanes' equations: we will have $$W^T x + b = \delta $$ for the first hyperplane, $$H_0$$, and $$w^T x + b = - \delta $$ for the second hyperplane, $$H_1$$. Let's also suppose that we have a binary classification problem, with two classes, i.e $$y(x) = 1$$ or $$y(x) = -1$$.
 
 Thus, we want, for all $$x_i$$ in the data:
+
+
 $$
 W^T x_i + b \ge \delta \text{ or }  W^T x_i + b \le -\delta
 $$
@@ -163,7 +165,7 @@ $$
 $$
 
 
-Solving this problem gives us the optimal hyperplane.$$ $$
+Solving this problem gives us the optimal hyperplane.
 
 ###### Soft Margin Classifier
 
@@ -173,15 +175,11 @@ As we already saw above, the SVM built by looking for the maximum margin is very
 
 _Source: quantstart.com_
 
-As show in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM.
+As show in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM. To prevent this problem, one can use a _soft margin classifier**, **_which allows for separation errors in order to prevent overfitting. The number of misclassified elements is tuned via a parameter $$C$$ . A small value of C means low bias but high variance \(a few errors but we tend to overfit\) while a higher value of $$C$$ means higher bias and lower variance.
 
-##### $$ $$II. When the data is not linearly separable
+##### II. When the data is not linearly separable
 
-##### 
 
-$$ $$
-
-$$ $$
 
 [^1]: [Can be found here ](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/#one)
 
