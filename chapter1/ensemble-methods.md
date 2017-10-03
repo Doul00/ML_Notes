@@ -85,10 +85,14 @@ The final output of the classifier is: $$H(x) = \sum_{i=1}^n \alpha_i h_i(x)$$  
 * The classifier having the best performance on the current training set is chosen for the current iteration.
 
 * At each step, the weight $$\alpha_i$$ of the chosen classifier is computed based on its error rate. The formula is:
+
+
   $$
     \alpha_i = \frac{1}{2} ln(\frac{(1-\epsilon_i)}{\epsilon_i})
   $$
-  with $$\epsilon_i$$ the error rate \(number of misclassifications divided by the total number of examples\). From this formula, we can see that high error rates will yield negative values of $$\alpha_i$$$$$$ while small error rates yield positive values. If $$\epsilon_i = 0.5$$, the weight is equal to zero.
+
+
+  with $$\epsilon_i$$ the error rate \(number of misclassifications divided by the total number of examples\). From this formula, we can see that high error rates will yield negative values of $$\alpha_i$$ while small error rates yield positive values. If $$\epsilon_i = 0.5$$, the weight is equal to zero.
 
 
 
