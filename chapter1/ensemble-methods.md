@@ -4,7 +4,7 @@
 
 ### I. Applications
 
-Ensemble methods is the use of multiple machine learning algorithms in order to get better results. They combine multiple hypothesis to form a better one. The ensemble is itself a machine learning algorithm since it can be trained and then used to make predictions. There many methods used for ensemble learning, such as voting, bagging, stacking and boosting. Later, we will see the most used ensemble algorithms.
+Ensemble methods is the use of multiple machine learning algorithms in order to get better results. They combine multiple hypothesis to form a better one. The ensemble is itself a machine learning algorithm since it can be trained and then used to make predictions. There are many methods used for ensemble learning, such as voting, bagging, stacking and boosting. Later, we will see the most used ensemble algorithms.
 
 ###### Voting\(classification\) & Averaging\(regression\):
 
@@ -62,7 +62,7 @@ The Random Forest algorithm is a bagging of multiple decision trees. It is a way
 
 ###### Algorithm:
 
-The training phase applies the principle of bagging. Each of the decision trees is trained on a sub-sample of the data. During the training phase, another sub-sampling is done when choosing the splits for the trees: A random sample of features are selected for the splits. By doing this, features which are important for the prediction will be represented in many trees, creating a correlation between them.After training, the prediction for the new examples can be made by averaging the results of the decision trees or by using a majority voting method.
+The training phase applies the principle of bagging. Each of the decision trees is trained on a sub-sample of the data. During the training phase, another sub-sampling is done when choosing the splits for the trees: A random sample of features are selected for the splits. By doing this, features which are important for the prediction will be represented in many trees, creating a correlation between them. After training, the prediction for the new examples can be made by averaging the results of the decision trees or by using a majority voting method.
 
 This method performs well since it reduces the _variance of the model_ but increases _the bias a little bit_.  Indeed, the weak learners are \(detailed\) decision trees trained on the data, thus they have low bias \(they make a few mistakes\) but high variance \(they are sensitive to noise\). By averaging them, the variance is reduced.
 
@@ -85,14 +85,10 @@ The final output of the classifier is: $$H(x) = \sum_{i=1}^n \alpha_i h_i(x)$$  
 * The classifier having the best performance on the current training set is chosen for the current iteration.
 
 * At each step, the weight $$\alpha_i$$ of the chosen classifier is computed based on its error rate. The formula is:
-
-
   $$
-  \alpha_i = \frac{1}{2} ln(\frac{(1-\epsilon_i)}{\epsilon_i})
+    \alpha_i = \frac{1}{2} ln(\frac{(1-\epsilon_i)}{\epsilon_i})
   $$
-
-
-  with $$\epsilon_i$$ the error rate \(number of misclassifications divided by the total number of examples\). From this formula, we can see that high error rates will yield negative values of $$\alpha_i$$ while small error rates yield positive values. If $$\epsilon_i = 0.5$$, the weight is null.
+  with $$\epsilon_i$$ the error rate \(number of misclassifications divided by the total number of examples\). From this formula, we can see that high error rates will yield negative values of $$\alpha_i$$$$$$ while small error rates yield positive values. If $$\epsilon_i = 0.5$$, the weight is equal to zero.
 
 
 

@@ -16,7 +16,7 @@ _Source: Wikipedia_
 
 #### **II. Model and cost function**
 
-We model the relationship between the feature vector $$Y$$ and the output variable $$Y$$ as follow: $$Y = \theta^T X + b$$, with $$\theta$$ being the weight matrix and $$b$$ the intercept. Those weights indicate to which extend each of the features participate in the final value. For instance, if a feature $$x^{(i)}$$ has a weight of 0, it does not participate at all in the value.
+We model the relationship between the feature vector $$Y$$ and the output variable $$Y$$ as follow: $$Y = \theta^T X + b$$, with $$\theta$$ being the weight matrix and $$b$$ the intercept. Those weights indicate to which extend each features participate in the final value. For instance, if a feature $$x^{(i)}$$ has a weight of 0, it does not participate at all in the final result.
 
 ##### **Hypothesis:**
 
@@ -44,16 +44,10 @@ $$
 This is the **Maximum Likelihood Estimator\(MLE\).** To prevent underflow, we will work with the log likelihood.
 
 By defining $$p(y^{(i)}|x^{(i)}) = \mathcal{N}(\theta^T x^{(i)}, \sigma^2)$$,  applying the MLE formula and maximizing over $$\theta$$, we see that the result is the same as minimizing the mean squared error: \(for details please see [http://cs229.stanford.edu/notes/cs229-notes1.pdf\)](http://cs229.stanford.edu/notes/cs229-notes1.pdf)
-
-
 $$
 J(\theta) = \frac{1}{2} \sum_{i=1}^{n} (y^{(i)} - h_\theta^{(i)})^2
 $$
-
-
----
-
-##### **Optimization:**
+**Optimization:**
 
 ###### Gradient descent:
 
@@ -65,8 +59,6 @@ First, we derive the cost function:
 $$
 \frac{\partial}{\partial{\theta_j}} J(\theta) = (Y - h_\theta)x_j
 $$
-
-
 And the update rule is:
 
 
@@ -123,7 +115,5 @@ $$
 $$
 
 
----
 
-[^1]: Image taken from wikipedia
 
