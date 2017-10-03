@@ -10,7 +10,7 @@
 
 #### I. Applications
 
-Decision Trees are used to classify objects. Each node represents an observation about the item and the tree's leaves are the class labels. Unlike linear models, they are able to map non-linear relationships. At each node, the tree splits the data into two or more homogenous sets \(which are the heterogeneous between each other\) in order to be able to discriminate well. Moreover, they are useful for data exploration as they do not require much data cleaning. However, they tend to overfit very easily.
+Decision Trees are used to classify objects. Each node represents an observation about the item and the tree's leaves are the class labels. Unlike linear models, they are able to map non-linear relationships. At each node, the tree splits the data into two or more homogenous sets \(which are heterogeneous between each other\) in order to be able to discriminate well. Moreover, they are useful for data exploration as they do not require much data cleaning. However, they tend to overfit very easily.
 
 Trees where the output is a continuous value are called _Regression Trees._
 
@@ -30,7 +30,7 @@ The Gini performs only **binary splits.** In this procedure, different split poi
 
 The Gini Index indicates how "pure" a node is, i.e to which extend the training data is mixed in a node. For instance, if the node contains only data points from one class, the node would be pure and it's cost equal to zero.
 
-It can be computed using the formula: $$G = p^2 + q^2$$ .
+It can be computed using the formula: $$G = p^2 + q^2$$ with $$p$$ being the probability of having one class members in a node, and $$q = 1 - p$$.
 
 The Gini score is computed for each sub-node and then weighted using the number of instances.
 
@@ -46,8 +46,10 @@ For the split on class, the final  value is 0.51. Thus, we split on Gender.
 
 ###### Information Gain:
 
-This method works by calculating the entropy for each node. If a node is homogeneous, the entropy is equal to zero and when it is equal to one in the worst case \(50% of class 1 in the node and 50% of class 2\). The entropy can be calculated using the formula:
-
+This method works by calculating the entropy for each node. If a node is homogeneous, the entropy is equal to zero and when it is equal to one in the worst case \(50% of class 1 in the node and 50% of class 2\). The entropy can be calculated using the formula:  
+$$
+\text{Entropy = } -p log2 p - q log2 q
+$$
 The steps to calculate entropy for a split are:
 
 * Calculate entropy for the parent node
@@ -60,8 +62,6 @@ In our previous example, we have the following results:
 * Entropy for female split: $$-0.2log_2(0.2) - 0.8log_2(0.8) = 0.72$$
 * Entropy for male split: $$-0.65log_2(0.65) -0.35log_2(0.35) = 0.93$$
 * Weighted entropy of both sub nodes: $$0.86$$
-
-###### 
 
 ###### Preventing overfit:
 
@@ -175,11 +175,9 @@ As we already saw above, the SVM built by looking for the maximum margin is very
 
 _Source: quantstart.com_
 
-As show in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM. To prevent this problem, one can use a _soft margin classifier**, **_which allows for separation errors in order to prevent overfitting. The number of misclassified elements is tuned via a parameter $$C$$ . A small value of C means low bias but high variance \(a few errors but we tend to overfit\) while a higher value of $$C$$ means higher bias and lower variance.
+As show in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM. To prevent this problem, one can use a \_soft margin classifier**, **\_which allows for separation errors in order to prevent overfitting. The number of misclassified elements is tuned via a parameter $$C$$ . A small value of C means low bias but high variance \(a few errors but we tend to overfit\) while a higher value of $$C$$ means higher bias and lower variance.
 
 ##### II. When the data is not linearly separable
-
-
 
 [^1]: [Can be found here ](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/#one)
 
