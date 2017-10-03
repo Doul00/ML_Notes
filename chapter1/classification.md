@@ -46,10 +46,14 @@ For the split on class, the final  value is 0.51. Thus, we split on Gender.
 
 ###### Information Gain:
 
-This method works by calculating the entropy for each node. If a node is homogeneous, the entropy is equal to zero and when it is equal to one in the worst case \(50% of class 1 in the node and 50% of class 2\). The entropy can be calculated using the formula:  
+This method works by calculating the entropy for each node. If a node is homogeneous, the entropy is equal to zero and when it is equal to one in the worst case \(50% of class 1 in the node and 50% of class 2\). The entropy can be calculated using the formula:
+
+
 $$
 \text{Entropy = } -p log2 p - q log2 q
 $$
+
+
 The steps to calculate entropy for a split are:
 
 * Calculate entropy for the parent node
@@ -111,7 +115,7 @@ SVMs are one of the most powerful machine learning algorithms. They can perform 
 
 Basically, the goal of the SVM is to draw a hyperplane which will separate the data for classification. It does this by finding the best hyperplane, i.e the one with margins that allow a good separation of the data.
 
-An excellent tutorial about the maths behind SVMs can be found here: [https://www.svm-tutorial.com/](https://www.svm-tutorial.com/). I will skip most of the details in this tutorial.
+An excellent tutorial about the maths behind SVMs can be found here: [https://www.svm-tutorial.com/](https://www.svm-tutorial.com/). I will not go too deep into the maths.
 
 #### II. Algorithm
 
@@ -119,7 +123,7 @@ An excellent tutorial about the maths behind SVMs can be found here: [https://ww
 
 ###### Maximum Margin Classifier
 
-When the data is linearly separable, the goal is to compute find the optimal hyperplane separating the data. To find the hyperplane with the biggest margin, we first select two hyperplanes with no data points between them and we maximise the distance between them. Those two hyperplanes are delimited by the data points lying on the margin. Those points are called the **support vectors. **In the following example, points A, B and C are the support vectors. This example shows us that the classification power of the SVM **depends a lot on the position of the support vectors**. This kind of SVM are called _Maximum Margin Classifiers_**.**
+When the data is linearly separable, the goal is to compute the optimal hyperplane separating the data. To find the hyperplane with the biggest margin, we first select two hyperplanes with no data points in between and we maximise the distance between them. Those two hyperplanes are delimited by the data points lying on the margin. Those points are called the **support vectors. **In the following example, points A, B and C are the support vectors. This example shows us that the classification power of the SVM **depends a lot on the position of the support vectors**. This kind of SVM are called _Maximum Margin Classifiers_**.**
 
 ![](/assets/support_vectors.png)
 
@@ -175,7 +179,7 @@ As we already saw above, the SVM built by looking for the maximum margin is very
 
 _Source: quantstart.com_
 
-As show in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM. To prevent this problem, one can use a \_soft margin classifier**, **\_which allows for separation errors in order to prevent overfitting. The number of misclassified elements is tuned via a parameter $$C$$ . A small value of C means low bias but high variance \(a few errors but we tend to overfit\) while a higher value of $$C$$ means higher bias and lower variance.
+As show in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM. To prevent this problem, one can use a soft margin classifier**,  **which allows for separation errors in order to prevent overfitting. The number of misclassified elements is tuned via a parameter $$C$$ . A small value of C means low bias but high variance \(a few errors but we tend to overfit\) while a higher value of $$C$$ means higher bias and lower variance.
 
 ##### II. When the data is not linearly separable
 
