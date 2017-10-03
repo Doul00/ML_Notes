@@ -6,7 +6,7 @@
 
 #### **I. Applications**
 
-Linear regression is used to predict a variable which output is a continuous. For instance, it can be used to predict the price of a house given some of its features. It performs well when the output variable $$y$$ is a linear combination of the features. Otherwise, it will perform poorly.
+Linear regression is used to predict a variable which output is a continuous value. For instance, it can be used to predict the price of a house given some of its features. It performs well when the output variable $$y$$ is a linear combination of the features. Otherwise, it will perform poorly.
 
 Its goal is to draw a line which fits the data in the best way possible.
 
