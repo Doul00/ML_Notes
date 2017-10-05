@@ -183,5 +183,19 @@ As show in the example above, adding a single data point can completely change t
 
 ##### II. When the data is not linearly separable
 
+In order to solve problems where the data is not linearly separable, we move our data into higher dimensions. The problem can then become linear. To perform this operation, we use a **kernel function**.
+
+---
+
+### Perceptron
+
+Is constitued of multiple input units and one output unit. Used to learn separating hyperplanes. The output unit is influenced by the input neurons. If the input units are stimulating the output unit in a sufficient way \(the neuron threshold\), the neuron **activates** itself. It is a linear separator.
+
+Output = $$ sign(\sum_{i=1}^n w_i x_i + w_0 )$$
+
+The goal is to minimize the norm of the hyperplane.
+
+To train a simple perceptron, we want to minimize the error $$\frac{1}{2} || sign(w^T x) - y ||^2 $$ . But we cannot take the derivative of the sign function in zero. So we repalce it with other activation functions, i.e softmax, sigmoid, etc... Let's note $$\phi$$ this activation function. So we our output becomes $$ \frac{1}{2} || \phi(w^T x) - y ||^2  $$
+
 [^1]: [Can be found here ](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/#one)
 

@@ -44,14 +44,18 @@ $$
 This is the **Maximum Likelihood Estimator\(MLE\).** To prevent underflow, we will work with the log likelihood.
 
 By defining $$p(y^{(i)}|x^{(i)}) = \mathcal{N}(\theta^T x^{(i)}, \sigma^2)$$,  applying the MLE formula and maximizing over $$\theta$$, we see that the result is the same as minimizing the mean squared error: \(for details please see [http://cs229.stanford.edu/notes/cs229-notes1.pdf\)](http://cs229.stanford.edu/notes/cs229-notes1.pdf)
+
+
 $$
 J(\theta) = \frac{1}{2} \sum_{i=1}^{n} (y^{(i)} - h_\theta^{(i)})^2
 $$
+
+
 **Optimization:**
 
 ###### Gradient descent:
 
-One way to minimize this cost function is through gradient descent. We take small step with a rate $$\alpha$$ to update our weights.
+One way to minimize this cost function is through gradient descent. We take small step with a rate $$\alpha$$ to update our weights. The choice of $$\alpha$$ is critical. If $$\alpha$$ is too high, we can miss the minimum of the function \(overshoot\). If $$\alpha$$ is too small, the convergence can take a lot of time.
 
 First, we derive the cost function:
 
@@ -59,6 +63,8 @@ First, we derive the cost function:
 $$
 \frac{\partial}{\partial{\theta_j}} J(\theta) = (Y - h_\theta)x_j
 $$
+
+
 And the update rule is:
 
 
@@ -113,7 +119,5 @@ We will maximize the log-likelihood using gradient **ascent **this time. Indeed,
 $$
 \theta_j := \theta_j + \alpha (y^{(i)} - h_\theta^{(i)}(x))x_j^{(i)}
 $$
-
-
 
 
