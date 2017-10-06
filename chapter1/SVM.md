@@ -56,7 +56,7 @@ with $$w$$ being the normal unit vector to one of the hyperplanes. The margin wi
 
 
 $$
-\text{minimize in } (w, b) \\ ||w|| \\  \text{subject to }  y_i(W^T x_i + b) \ge \delta \\ \forall x_i \text{ in } i\text{ ,..., } n
+\text{minimize in } (w, b) \text{ ; } ||w||  \text{ ; } \text{subject to }  y_i(W^T x_i + b) \ge \delta \\ \forall x_i \text{ in } i\text{ ,..., } n
 $$
 
 
