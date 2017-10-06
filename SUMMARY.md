@@ -2,8 +2,11 @@
 
 * [Introduction](README.md)
 * [Supervised Learning](chapter1.md)
-  * [Classification](chapter1/classification.md)
+  * [SVM](chapter1/SVM.md)
   * [Regression](chapter1/regression.md)
   * [Ensemble Methods](chapter1/ensemble-methods.md)
+  * [Decision Trees](chapter1/decision-trees.md)
+  * [K-Nearest Neighbours](chapter1/k-nearest-neighbours.md)
+  * [Perceptron](chapter1/perceptron.md)
 * [Unsupervised Learning](unsupervised-learning.md)
 
