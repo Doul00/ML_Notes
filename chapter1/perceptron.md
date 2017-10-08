@@ -2,7 +2,7 @@
 
 #### I. Applications
 
-The idea behind the perceptron is to separate the data using an hyperplane in order to classify the new examples. The hyperplane's equation has the form $$ f(x) = w.x + b $$ with $$w$$ being a vector of weights and $$b$$ representing the bias, i.e the vertical offset of our line.
+The idea behind the perceptron is to separate the data using an hyperplane in order to classify the new examples. The hyperplane's equation has the form $$ f(x) = \sum_{i=1}^n w_i .x_i + b = w . x + b$$ with $$w$$ being a vector of weights and $$b$$ representing the bias, i.e the vertical offset of our line. For the sake of simplicity, we will consider from now on that the bias is already added into the weight matrix, i.e $$w_0 = b $$.
 
 ![](/assets/perceptron.png)
 
@@ -22,7 +22,7 @@ The training of the perceptron is online: Instead of looking at all the dataset,
 
 For each example $$x_i$$ in the dataset, we perform the following steps:
 
-* Compute the output $$y_i$$ for the example with $$y_i = w_i.x_i + b$$
+* Compute the output $$y_i$$ for the example with $$y_i = w.x_i$$
 * If the output matches the desired output $$d_i$$, continue
 * Otherwise, update the weights: $$w_i = w_i + (d_i - y_i)x_i$$
 * Repeat until the loss function reaches a pre-defined threshold, or when the iteration of epochs is reached.
