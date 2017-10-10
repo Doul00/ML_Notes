@@ -46,11 +46,11 @@ _Source: Analytics Vidhya_
 
 For instance, in this example, we want to build a classifier for pluses and minuses.
 
-* We start with D1 with is trained and then performs predictions. As we can see, it misclassified 3 pluses as minuses.
+* We start with D1 which is trained and then performs predictions. As we can see, it misclassified 3 pluses as minuses.
 * So before creating D2, we give a higher weight to those misclassified examples.
 * We add D2 and we perform a new prediction. This time is classified the 3 pluses very well but misclassifies the red minuses.
 * We repeat the algorithm for D3.
-* Finally, we  weight the three models and combine them to create our final classifier. The weights are assigned in a way that the classification error at step $$i$$ is minimized.
+* Finally, we weight the three models and combine them to create our final classifier. The weights are assigned in a way that the classification error at step $$i$$ is minimized.
 
 ### II. Algorithms
 
@@ -62,7 +62,7 @@ The Random Forest algorithm is a bagging of multiple decision trees. It is a way
 
 The training phase applies the principle of bagging. Each of the decision trees is trained on a sub-sample of the data. During the training phase, another sub-sampling is done when choosing the splits for the trees: A random sample of features are selected for the splits. By doing this, features which are important for the prediction will be represented in many trees, creating a correlation between them. After training, the prediction for the new examples can be made by averaging the results of the decision trees or by using a majority voting method.
 
-This method performs well since it reduces the _variance of the model_ but increases _the bias a little bit_.  Indeed, the weak learners are \(detailed\) decision trees trained on the data, thus they have low bias \(they make a few mistakes\) but high variance \(they are sensitive to noise\). By averaging them, the variance is reduced.
+This method performs well since it reduces the _variance of the model_.  Indeed, the weak learners are \(detailed\) decision trees trained on the data, thus they have low bias \(they make a few mistakes\) but high variance \(they are sensitive to noise\). By averaging them, the variance is reduced.
 
 #### II. AdaBoost \(Adaptative Boosting\)
 
