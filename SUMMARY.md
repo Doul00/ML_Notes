@@ -7,6 +7,6 @@
   * [Decision Trees](chapter1/decision-trees.md)
   * [Ensemble Methods](chapter1/ensemble-methods.md)
   * [K-Nearest Neighbours](chapter1/k-nearest-neighbours.md)
-  * [Perceptron](chapter1/perceptron.md)
+  * [Perceptrons](chapter1/perceptron.md)
 * [Unsupervised Learning](unsupervised-learning.md)
 
