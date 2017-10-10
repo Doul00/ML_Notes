@@ -2,7 +2,9 @@
 
 #### I. Applications
 
-Decision Trees are used to classify objects. Each node represents an observation about the item and the tree's leaves are the class labels. Unlike linear models, they are able to map non-linear relationships. At each node, the tree splits the data into two or more homogenous sets \(which are heterogeneous between each other\) in order to be able to discriminate well. Moreover, they are useful for data exploration as they do not require much data cleaning. However, they tend to overfit very easily.
+Decision Trees are used to classify objects. They are made of nodes and leaves. Each node represents an observation about the item and the tree's leaves are the class labels. Unlike linear models, they are able to map non-linear relationships.
+
+At each node, the tree splits the data into two or more homogenous sets \(which are heterogeneous between each other\) in order to be able to discriminate well. Moreover, they are useful for data exploration as they do not require much data cleaning. However, they tend to overfit very easily.
 
 Trees where the output is a continuous value are called _Regression Trees._
 
@@ -18,9 +20,9 @@ There are many algorithms used to build decision trees. Here, we will take a loo
 
 ###### Gini Index:
 
-The Gini performs only **binary splits.** In this procedure, different split points are tried and tested using a cost function. The split with the lower value is selected \(since we want to minimize the cost\). Once the split is performed, the function is recursively called on each new node.
+The Gini performs only **binary splits.** In this procedure, different split points are tried and tested using a cost function. Once the split is performed, the function is recursively called on each new node.
 
-The Gini Index indicates how "pure" a node is, i.e to which extend the training data is mixed in a node. For instance, if the node contains only data points from one class, the node would be pure and it's cost equal to zero.
+The Gini Index indicates how "pure" a node is, i.e to which extend the training data is mixed in a node. For instance, if the node contains only data points from one class, the node would be **pure** and it's cost equal to **zero**. Thus, the higher the Gini Index, the better the split.
 
 It can be computed using the formula: $$G = p^2 + q^2$$ with $$p$$ being the probability of having one class members in a node, and $$q = 1 - p$$.
 
@@ -28,21 +30,21 @@ The Gini score is computed for each sub-node and then weighted using the number 
 
 ![](/assets/Screen Shot 2017-09-02 at 18.00.08.png)_Source: Analytics Vidhya_
 
-In this example[^1], we for the Gender, we have:
+In this example, we want to tell whether a student is playing Cricket or not. To do so, we split on the Gender attribute and we obtain the following results:
 
 * Gini for female split: $$0.2^2 + 0.8^2 = 0.68$$
 * Gini for male split: $$0.65^2 + 0.35^2 = 0.55$$
 * Weighted Gini value: $$0.68 * (10/30) + 0.55 * (20/30) = 0.59$$
 
-For the split on class, the final  value is 0.51. Thus, we split on Gender.
+For the split on class, the final value is 0.51. Thus, we split on Gender.
 
 ###### Information Gain:
 
-This method works by calculating the entropy for each node. If a node is homogeneous, the entropy is equal to zero and when it is equal to one in the worst case \(50% of class 1 in the node and 50% of class 2\). The entropy can be calculated using the formula:
+This method works by calculating the entropy for each node. If a node is homogeneous, the entropy is equal to zero. In the worst case it is equal to one \(50% of class 1 in the node and 50% of class 2\). The entropy can be calculated using the formula:
 
 
 $$
-\text{Entropy = } -p log2 p - q log2 q
+\text{Entropy = } -p log_2 p - q log_2 q
 $$
 
 
@@ -54,10 +56,12 @@ The steps to calculate entropy for a split are:
 
 In our previous example, we have the following results:
 
-* Entropy for parent node: $$-0.5log_2(0.5) - 0.5log_2(0.5) = 1$$. 
+* Entropy for parent node: $$-0.5log_2(0.5) - 0.5log_2(0.5) = 1$$.
 * Entropy for female split: $$-0.2log_2(0.2) - 0.8log_2(0.8) = 0.72$$
 * Entropy for male split: $$-0.65log_2(0.65) -0.35log_2(0.35) = 0.93$$
-* Weighted entropy of both sub nodes: $$0.86$$
+* Weighted entropy of both sub nodes: $$(10/30) * 0.72 + (20/30) * 0.93 = 0.86$$
+
+For the split on class, we obtain a value of $$0.99$$. We thus split on the gender.
 
 ###### Preventing overfit:
 

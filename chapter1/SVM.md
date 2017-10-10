@@ -32,11 +32,11 @@ $$
 
 which means that each point will be either on one side of $$H_1$$ or on the other side of $$H_0$$
 
-To classify a new example $$ x^* $$, we calculate $$W^T x^* + b = y^*$$ . If $$y* \le -\delta $$ then the new example belongs to one class \(or to the other class if $$ y^* \ge \delta $$\).
+To classify a new example $$ x^* $$, we calculate $$W^T x^* + b = y^*$$ . If $$y^* \le -\delta $$ then the new example belongs to one class \(or to the other class if $$ y^* \ge \delta $$\).
 
 ![](/assets/svm.png)
 
-If we multiply the two-sides by $$y_i$$ and combine the two equations, we find that, for all $$x_i$$:
+If we multiply the two-sides of the hyperplane's equations by $$y_i$$ and combine the two equations, we find that, for all $$x_i$$:
 
 
 $$
@@ -70,11 +70,11 @@ As we already saw above, the SVM built by looking for the maximum margin is very
 
 _Source: quantstart.com_
 
-As show in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM. To prevent this problem, one can use a soft margin classifier**,  **which allows for separation errors in order to prevent overfitting. The number of misclassified elements is tuned via a parameter $$C$$ . A small value of C means low bias but high variance \(a few errors but we tend to overfit\) while a higher value of $$C$$ means higher bias and lower variance.
+As shown in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM. To prevent this problem, one can use a_ soft margin classifier_**,  **which allows for separation errors in order to prevent overfitting. The number of misclassified elements is tuned via a parameter $$C$$ . A small value of C means low bias but high variance \(a few errors on the training set but we tend to overfit\) while a higher value of $$C$$ means higher bias and lower variance.
 
 ##### II. When the data is not linearly separable
 
-In order to solve problems where the data is not linearly separable, we move our data into higher dimensions. The problem can then become linear. To perform this operation, we use a **kernel function**.
+In order to solve problems where the data is not linearly separable, we move our data into higher dimensions. By projecting our data into a higher dimension, it is possible to find a hyperplane separating the value. To perform this "projection" operation, we use a **kernel function**.
 
 ---
 
