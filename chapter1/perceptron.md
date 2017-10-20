@@ -45,7 +45,7 @@ A neuron is the base unit of an artificial neural network an is inspired from th
 
 Artificial neurons work in the same way. They receive inputs from the input layer, sum them and outputs a value thanks to an activation function. Mathematically, the sum of inputs is written as $$h(x) = w \cdot x + b$$ and the activation function as $$z(x) = \phi(h(x)) $$ . This activation is non-linear, it helps the neural network break the linearity and learn non-linear features. There exist many activation functions, and we will study them later.
 
-###### Forward computation:
+###### Forward pass:
 
 ![](/assets/MLP.png)
 
@@ -53,7 +53,10 @@ How does the MLP computes a value given inputs?
 
 Let $$X$$ be our feature vector of size $$n$$ and $$W$$ be our weight matrix. For each neuron $$i$$ in the hidden layer:
 
-* We compute it's output function: $$h_i(x) = \sum_{i=1}^n x_i w_{ij} + b_i$$_  \_with _$$w{ij}$$$$ being the weight mapping the the previous layer \(here the input layer since we only have 1 hidden layer\) output \(input in this case\) $$i$$ to the neuron $$j$$ and $$b\_i$$  being the bias for that neuron.
+* We compute it's output function: $$h_i(x) = \sum_{i=1}^n x_i w_{ij} + b_i$$_  _
+
+_with _$$w{ij}$$  being the weight mapping the output \(input in this case since we only have 1 hidden layer\) $$i$$ of the previous layer  to the neuron $$j$$, with $$b_i$$ being the bias for that neuron.
+
 * We apply the activation function $$\phi$$: $$z_i(x) = \phi(h_i(x))$$
 * It can be written as $$h(x) = W \cdot X + b$$ 
 
@@ -63,5 +66,7 @@ We apply the same algorithm until we reach the output neurons.
 
 The first time we compute the forward computation, the outputs won't match the desired results. It means that we have to update our weights and biases in order to make our neural network more efficient. This is done with the _backpropagation**. **_
 
-The idea behind this is that we compute the error at the output neurons and we _propagate_ the error back into the hidden layers in order to change the weights, so that our next forward computation will bring us closer to the result.
+The idea behind this is that we compute the error at the output neurons and we _propagate_ the error back into the hidden layers in order to change the weights, so that our next forward computation will bring us closer to the result. The error is defined by a cost function and we want to minimize our error, i.e find the minimum \(the global minimum cannot be found directly, so most of the time we just accept a local minima\). In this way, backpropagation is analogue to the gradient descend algorithm.
+
+
 
