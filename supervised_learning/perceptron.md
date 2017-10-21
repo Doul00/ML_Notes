@@ -162,7 +162,8 @@ $$
 
 Again we can notice in a common part in the derivatives. We write it as $$\delta^1_1$$ . Is it easy to keep going and write all the formulas down, but let's factorise everything:
 
-* To compute the derivative of the bias of neuron $$j$$ in the layer $$l$$, we have: 
+* To compute the derivative of the bias of neuron $$j$$ in the layer $$l$$, we have:
+
 
   $$
   \frac{\partial E}{\partial b^l_j} = \delta^l_j
@@ -170,14 +171,14 @@ Again we can notice in a common part in the derivatives. We write it as $$\delta
 
 * To compute the derivative of the weight mapping neuron $$i$$ of layer $$ l - 1$$ to neuron $$j$$ of layer $$l$$:
 
+
   $$
   \frac{\partial E}{\partial w^l_{ij}} = \delta^l_j  a^{l-1}_i
   $$
 
+Or in simple words, "Error signal of the current layer for neuron $$j$$ multiplicated by output of the neuron $$i$$ in the previous layer".
 
-  Or in simple words, "Error signal of the current layer for neuron $$j$$ multiplicated by output of the neuron $$i$$ in the previous layer".
-
-* To compute the error signal of layer $$l$$:
+* To compute the error signal of layer $$l$$: 
 
 
 
