@@ -1,6 +1,0 @@
-## Linear Discrimination
-
-### 
-
-
-
