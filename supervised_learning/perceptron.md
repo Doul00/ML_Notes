@@ -99,18 +99,18 @@ $$e = \begin{bmatrix} o_1 - y_1 \\ o_2 - y_2
 
 First, we need to compute the gradient of the error with respect to the outputs. This value will tell us how the error changes when there are small changes in the outputs. We will start by writing the equations for neuron $$o_1$$:
 
-*  $$\text{Error gradient: }\frac{\partial E}{\partial o_1} = o_1 - y_1$$
+* $$\text{Error gradient: }\frac{\partial E}{\partial o_1} = o_1 - y_1$$
 
 Now that we have the error gradient for the output. We want to propagate it back to the parameters responsible for the computation of this output value and update them. We know that $$o_1 = \sigma(a_1) =  \sigma(z_1 v_{11} + z_2 v_{21} + bo_1)$$ with $$z_1 = \sigma(h_1(x))$$.
 
 From this formula, we can see the weights we need to update: $$v_{11}, v_{21} \text{ and } bo_1 $$.
 
 * $$ \text{Gradient for 
-   } v_{11} :\frac{\partial E}{\partial v_{11}} = \frac{\partial E}{\partial o_1} \frac{\partial o_1}{\partial v_{11}} = (o_1 - y_1)\sigma'(a_1) z_1$$ 
+   } v_{11} :\frac{\partial E}{\partial v_{11}} = \frac{\partial E}{\partial o_1} \frac{\partial o\_1}{\partial v_{11}} = \(o\_1 - y\_1\)\sigma'\(a\_1\) z\_1$$ 
 * $$ \text{Gradient for 
-   } bo_1 :\frac{\partial E}{\partial bo_1} = \frac{\partial E}{\partial o_1} \frac{\partial o_1}{\partial bo_1} = (o_1 - y_1)\sigma'(a_1)$$
+   } bo\_1 :\frac{\partial E}{\partial bo\_1} = \frac{\partial E}{\partial o\_1} \frac{\partial o\_1}{\partial bo\_1} = \(o\_1 - y\_1\)\sigma'\(a\_1\)$$
 * $$ \text{Gradient for 
-   } v_{21} :\frac{\partial E}{\partial v_{21}} = \frac{\partial E}{\partial o_1} \frac{\partial o_1}{\partial v_{21}} = (o_1 - y_1)\sigma'(a_1) z_2$$$$$$
+   } v_{21} :\frac{\partial E}{\partial v_{21}} = \frac{\partial E}{\partial o_1} \frac{\partial o\_1}{\partial v_{21}} = \(o\_1 - y\_1\)\sigma'\(a\_1\) z\_2$$$$$$
 
 It is easy to notice the common part in those gradients: $$(o_1 - y_1)\sigma'(a_1)$$ . We can write it as $$\delta^2_1$$. By repeating the same operation for output $$o_2$$, we have $$\delta^2_2 = (o_2 - y_2) \sigma'(a_2)$$ , with $$\delta^l_j$$ meaning "Error signal in layer $$l$$ for neuron $$j$$". We can write:
 
@@ -128,6 +128,8 @@ $$
  \text{Gradient for 
  } w_{11} :\frac{\partial E}{\partial w_{11}} = \frac{\partial E}{\partial o_1} \frac{\partial o_1}{\partial w_{11}} + \frac{\partial E}{\partial o_2} \frac{\partial o_2}{\partial w_{11}}
 $$
+
+
 Here the formula is not the same. Indeed, $$w_{11} $$ was also used to compute $$o_2$$ \(through $$h_1$$ 's output\)$$$$, so we need to take in account the error coming from this output too.
 
 
@@ -135,41 +137,47 @@ $$
 \frac{\partial o_1}{\partial w_{11}} = \frac{\partial o_1}{\partial z_1} \frac{\partial z_1}{\partial w_{11}} = v_{11} \sigma'(a_1) x_1 \sigma'(h_1)= \delta^2_1v_{11}x_1\sigma'(h1)
 $$
 
+
+
 $$
 \frac{\partial o_2}{\partial w_{11}} = \frac{\partial o_2}{\partial z_1} \frac{\partial z_1}{\partial w_{11}} = v_{12} \sigma'(a_2) x_1 \sigma'(h_1)= \delta^2_2 v_{12}x_1\sigma'(h1)
 $$
+
+
 Then :
 
 
 $$
 \frac{\partial E}{\partial w_{11}} = (\delta^2_1 v_{11} + \delta^2_2 v_{12}) x_1 \sigma'(h_1)
 $$
+
+
 For the bias, we have the following:
 
 
 $$
 \frac{\partial E}{\partial bh_1} = \delta^2_1v_{11} + \delta^2_2 v_{12}
 $$
+
+
 Again we can notice in a common part in the derivatives. We write it as $$\delta^1_1$$ . Is it easy to keep going and write all the formulas down, but let's factorise everything:
 
 * To compute the derivative of the bias of neuron $$j$$ in the layer $$l$$, we have: 
+
   $$
   \frac{\partial E}{\partial b^l_j} = \delta^l_j
   $$
+
 * To compute the derivative of the weight mapping neuron $$i$$ of layer $$ l - 1$$ to neuron $$j$$ of layer $$l$$:
+
   $$
   \frac{\partial E}{\partial w^l_{ij}} = \delta^l_j  a^{l-1}_i
   $$
+
+
   Or in simple words, "Error signal of the current layer for neuron $$j$$ multiplicated by output of the neuron $$i$$ in the previous layer".
+
 * To compute the error signal of layer $$l$$:
-
-
-$$
-
-
-
-$$
-
 
 
 
