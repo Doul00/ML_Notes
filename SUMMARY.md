@@ -2,11 +2,11 @@
 
 * [Introduction](README.md)
 * [Supervised Learning](supervised_learning/introduction.md)
-* [Regression](chapter1/regression.md)
-* [K-Nearest Neighbours](chapter1/k-nearest-neighbours.md)
-* [Decision Trees](chapter1/decision-trees.md)
-* [Ensemble Methods](chapter1/ensemble-methods.md)
-* [SVM](chapter1/SVM.md)
-* [Perceptrons](chapter1/perceptron.md)
+* [Regression](supervised_learning/regression.md)
+* [K-Nearest Neighbours](supervised_learning/k-nearest-neighbours.md)
+* [Decision Trees](supervised_learning/decision-trees.md)
+* [Ensemble Methods](supervised_learning/ensemble-methods.md)
+* [SVM](supervised_learning/SVM.md)
+* [Perceptrons](supervised_learning/perceptron.md)
 * [Unsupervised Learning](unsupervised-learning.md)
 
