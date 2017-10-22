@@ -169,29 +169,35 @@ Again we can notice in a common part in the derivatives. We write it as $$\delta
 * To compute the derivative of the error relative to the bias of neuron $$j$$ in the layer $$l$$, we have:
 
 
-  $$
+$$
     \frac{\partial E}{\partial b^l_j} = \delta^l_j
-  $$
+$$
+
 
 * To compute the derivative of the error relative to the weight mapping neuron $$i$$ of layer $$ l - 1$$ to neuron $$j$$ of layer $$l$$:
 
 
-  $$
+$$
      \frac{\partial E}{\partial w^l_{ij}} = \delta^l_j  z^{l-1}_i
-  $$
+$$
 
 
-  Or in simple words, "Error signal of the current layer for neuron $$j$$ multiplicated by output of the neuron $$i$$ in the previous layer".
+Or in simple words, "Error signal of the current layer for neuron $$j$$ multiplicated by output of the neuron $$i$$ in the previous layer".
 
 * To compute the error signal of layer $$l$$:
 
 
-  $$
+$$
   \delta^l = \delta^{l+1} \cdot W^{l+1} \odot \sigma'(z^l)
-  $$
+$$
+
 
 The gradient value for a weight in the network is written $$\Delta w^l_{ij}$$. This is known as the delta rule.
 
-Finally, the update of a weight is written $$\text{New value for 
- } w^l_{ij} = w^l_{ij} -\alpha \Delta w^l_{ij}$$ with $$\alpha$$ being the learning rate.
+Finally, the update of a weight is written: 
+$$
+\text{New value for 
+ } w^l_{ij} = w^l_{ij} -\alpha \Delta w^l_{ij}
+$$
+ with $$\alpha$$ being the learning rate.
 
