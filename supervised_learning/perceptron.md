@@ -37,7 +37,7 @@ The main problem of the single layer perceptron is that it cannot solve problems
 
 #### I. Applications
 
-Multilayer perceptrons \(MLP\) are \_artificial neural networks. \_They are used for situations where the data is not linearly separable. The MLPs are composed of at least three layers:
+Multilayer perceptrons \(MLP\) are _artificial neural networks_. They are used for situations where the data is not linearly separable. The MLPs are composed of at least three layers:
 
 * An input layer, which receives the data
 * A hidden layer, made of neurons
@@ -70,7 +70,7 @@ Let $$X$$ be our feature vector of size $$n$$ and $$W$$ be our weight matrix. Fo
 
 * We compute it's output function: $$h_i(x) = \sum_{i=1}^n x_i w_{ij} + b_i$$_  _
 
-_with _$$w{ij}$$  being the weight mapping the output \(input in this case since we only have 1 hidden layer\) $$i$$ of the previous layer  to the neuron $$j$$, with $$b_i$$ being the bias for that neuron.
+_with _$$w_{ij}$$  being the weight mapping the output \(input in this case since we only have 1 hidden layer\) $$i$$ of the previous layer  to the neuron $$j$$, with $$b_i$$ being the bias for that neuron.
 
 * We apply the activation function $$\sigma$$: $$z_i(x) = \sigma(h_i(x))$$
 * It can be written as $$h(x) = W \cdot X + b$$ 
@@ -105,80 +105,65 @@ Now that we have the error gradient for the output. We want to propagate it back
 
 From this formula, we can see the weights we need to update: $$v_{11}, v_{21} \text{ and } bo_1 $$.
 
-* $$ \text{Gradient for 
-   } v_{11} :\frac{\partial E}{\partial v_{11}} = \frac{\partial E}{\partial o_1} \frac{\partial o\_1}{\partial v_{11}} = \(o\_1 - y\_1\)\sigma'\(a\_1\) z\_1$$ 
-* $$ \text{Gradient for 
-   } bo\_1 :\frac{\partial E}{\partial bo\_1} = \frac{\partial E}{\partial o\_1} \frac{\partial o\_1}{\partial bo\_1} = \(o\_1 - y\_1\)\sigma'\(a\_1\)$$
-* $$ \text{Gradient for 
-   } v_{21} :\frac{\partial E}{\partial v_{21}} = \frac{\partial E}{\partial o_1} \frac{\partial o\_1}{\partial v_{21}} = \(o\_1 - y\_1\)\sigma'\(a\_1\) z\_2$$$$$$
+* $$\text{Gradient for
+  } v{11} :\frac{\partial E}{\partial v{11}} = \frac{\partial E}{\partial o1} \frac{\partial o_1}{\partial v{11}} = (o_1 - y_1)\sigma'(a_1) z_1 $$
+* $$\text{Gradient for
+  } bo_1 :\frac{\partial E}{\partial bo_1} = \frac{\partial E}{\partial o_1} \frac{\partial o_1}{\partial bo_1} = (o_1 - y_1)\sigma'(a_1)$$
+* $$\text{Gradient for
+  } v{21} :\frac{\partial E}{\partial v{21}} = \frac{\partial E}{\partial o1} \frac{\partial o_1}{\partial v{21}} = (o_1 - y_1)\sigma'(a_1) z_2$$
+
+
 
 It is easy to notice the common part in those gradients: $$(o_1 - y_1)\sigma'(a_1)$$ . We can write it as $$\delta^2_1$$. By repeating the same operation for output $$o_2$$, we have $$\delta^2_2 = (o_2 - y_2) \sigma'(a_2)$$ , with $$\delta^l_j$$ meaning "Error signal in layer $$l$$ for neuron $$j$$". We can write:
-
-
 $$
 \delta^2 = \begin{bmatrix} (o_1 - y_1)\sigma'(a_1)\\ (o_2 - y_2)\sigma'(a_2)
 \end{bmatrix}
 $$
 
 
-Now we have the gradients for the weights and the bias. Let's propagate the signal further back into the network to update the outputs from the previous layer's neurons. We have $$z_1 = \sigma(h_1(x)) = \sigma(w_{11} x_1 + w_{21} x_2 + bh_1) $$.  We repeat the same operation as previously:
-
-
+Now that we have the gradients for the weights and the bias. Let's propagate the signal further back into the network to update the outputs from the previous layer's neurons. We have $$z_1 = \sigma(h_1(x)) = \sigma(w_{11} x_1 + w_{21} x_2 + bh_1) $$.  We repeat the same operation as previously:
 $$
  \text{Gradient for 
  } w_{11} :\frac{\partial E}{\partial w_{11}} = \frac{\partial E}{\partial o_1} \frac{\partial o_1}{\partial w_{11}} + \frac{\partial E}{\partial o_2} \frac{\partial o_2}{\partial w_{11}}
 $$
-
-
-Here the formula is not the same. Indeed, $$w_{11} $$ was also used to compute $$o_2$$ \(through $$h_1$$ 's output\)$$$$, so we need to take in account the error coming from this output too.
-
-
+Here the formula is not the same. Indeed, $$w_{11} $$ was also used to compute $$o_2$$ \(through $$h_1$$ 's output\), so we need to take in account the error coming from this output too.
 $$
-\frac{\partial o_1}{\partial w_{11}} = \frac{\partial o_1}{\partial z_1} \frac{\partial z_1}{\partial w_{11}} = v_{11} \sigma'(a_1) x_1 \sigma'(h_1)= \delta^2_1v_{11}x_1\sigma'(h1)
+\frac{\partial o_1}{\partial w_{11}} = \frac{\partial o_1}{\partial z_1} \frac{\partial z_1}{\partial w_{11}} = v_{11} \sigma'(a_1) x_1 \sigma'(h_1)= \delta^2_1v_{11}x_1\sigma'(h_1)
 $$
 
-
-
 $$
-\frac{\partial o_2}{\partial w_{11}} = \frac{\partial o_2}{\partial z_1} \frac{\partial z_1}{\partial w_{11}} = v_{12} \sigma'(a_2) x_1 \sigma'(h_1)= \delta^2_2 v_{12}x_1\sigma'(h1)
+\frac{\partial o_2}{\partial w_{11}} = \frac{\partial o_2}{\partial z_1} \frac{\partial z_1}{\partial w_{11}} = v_{12} \sigma'(a_2) x_1 \sigma'(h_1)= \delta^2_2 v_{12}x_1\sigma'(h_1)
 $$
-
-
 Then :
-
-
 $$
-\frac{\partial E}{\partial w_{11}} = (\delta^2_1 v_{11} + \delta^2_2 v_{12}) x_1 \sigma'(h_1)
+\frac{\partial E}{\partial w_{11}} = (\delta^2_1 v_{11} + \delta^2_2 v_{12}) \sigma'(h_1) x_1
 $$
-
-
 For the bias, we have the following:
-
-
 $$
-\frac{\partial E}{\partial bh_1} = \delta^2_1v_{11} + \delta^2_2 v_{12}
+\frac{\partial E}{\partial bh_1} = (\delta^2_1v_{11} + \delta^2_2 v_{12})\sigma'(h_1)
 $$
+Again we can notice in a common part in the derivatives. We write it as $$\delta^1_1$$ . Is it easy to keep going and write all the formulas down, but let's factorise everything. 
 
-
-Again we can notice in a common part in the derivatives. We write it as $$\delta^1_1$$ . Is it easy to keep going and write all the formulas down, but let's factorise everything:
-
-* To compute the derivative of the bias of neuron $$j$$ in the layer $$l$$, we have:
-
-
+* To compute the derivative of the error relative to the bias of neuron $$j$$ in the layer $$l$$, we have:
   $$
-  \frac{\partial E}{\partial b^l_j} = \delta^l_j
+    \frac{\partial E}{\partial b^l_j} = \delta^l_j
   $$
 
-* To compute the derivative of the weight mapping neuron $$i$$ of layer $$ l - 1$$ to neuron $$j$$ of layer $$l$$:
-
-
+* To compute the derivative of the error relative to the weight mapping neuron $$i$$ of layer $$ l - 1$$ to neuron $$j$$ of layer $$l$$:
   $$
-  \frac{\partial E}{\partial w^l_{ij}} = \delta^l_j  a^{l-1}_i
+     \frac{\partial E}{\partial w^l_{ij}} = \delta^l_j  z^{l-1}_i
   $$
-
-Or in simple words, "Error signal of the current layer for neuron $$j$$ multiplicated by output of the neuron $$i$$ in the previous layer".
+  Or in simple words, "Error signal of the current layer for neuron $$j$$ multiplicated by output of the neuron $$i$$ in the previous layer".
 
 * To compute the error signal of layer $$l$$: 
+  $$
+  \delta^l = \delta^{l+1} \cdot W^{l+1} \odot \sigma'(z^l)
+  $$
+
+The gradient value for a weight in the network is written $$\Delta w^l_{ij}$$. This is known as the delta rule.
+
+Finally, the update of a weight is written $$\text{New value for 
+ } w^l_{ij} = w^l_{ij} -\alpha \Delta w^l_{ij}$$ with $$\alpha$$ being the learning rate.
 
 
 
