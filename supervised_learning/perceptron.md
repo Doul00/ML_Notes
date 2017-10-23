@@ -188,16 +188,20 @@ Or in simple words, "Error signal of the current layer for neuron $$j$$ multipli
 
 
 $$
-  \delta^l = \delta^{l+1} \cdot W^{l+1} \odot \sigma'(z^l)
+  \delta^l = \delta^{l+1} \cdot W^{l+1} \odot \sigma'(a^l)
 $$
 
 
 The gradient value for a weight in the network is written $$\Delta w^l_{ij}$$. This is known as the delta rule.
 
-Finally, the update of a weight is written: 
+Finally, the update of a weight is written:
+
+
 $$
 \text{New value for 
  } w^l_{ij} = w^l_{ij} -\alpha \Delta w^l_{ij}
 $$
- with $$\alpha$$ being the learning rate.
+
+
+with $$\alpha$$ being the learning rate.
 
