@@ -16,7 +16,20 @@ This example comes from the titanic dataset of Kaggle. In this example, the deci
 
 #### II. Algorithms
 
-There are many algorithms used to build decision trees. Here, we will take a look at the **Gini Index** and the** Information Gain **methods. Other methods can be found [here](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/#one).
+There are many algorithms used to build decision trees. The first one was the **ID3 **algorithm, which was the precursor of the **C4.5 **algorithm. Let's see how they work:
+
+##### ID3 Algorithm:
+
+The goal of the ID3 algorithm is to build a decision tree from a dataset using the set of attributes $$S$$ and a root node. At each iteration, each one of the attributes is tested and the one yielding the best **discrimination** in the data is picked and removed from $$S$$. The dataset is then split in child nodes using the chosen attribute and the process is applied until there are no attributes remaining.
+
+To summarize, the steps of the algorithm are the following:
+
+* For each attribute $$s \in S$$, calculate the discriminative power of the $$s$$
+* Create a node containing $$s$$
+* Split the dataset into child nodes using $$s$$
+* Recurse of the childs
+
+But how do we evaluate this discriminative power? There are many metrics used for this task. Here, we will take a look at the **Gini Index** and the** Information Gain **methods. Other methods can be found [here](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/#one).
 
 ###### Gini Index:
 
@@ -63,7 +76,9 @@ In our previous example, we have the following results:
 
 For the split on class, we obtain a value of $$0.99$$. We thus split on the gender.
 
-###### Preventing overfit:
+##### C4.5 Algorithm:
+
+##### Preventing overfit:
 
 Decision Trees tend to overfit very quickly. In the worst case there can be a node for each training example, resulting in a 100% accuracy in the training set but bad performance with the test set.
 
