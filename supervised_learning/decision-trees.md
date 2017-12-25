@@ -27,7 +27,12 @@ To summarize, the steps of the algorithm are the following:
 * For each attribute $$s \in S$$, calculate the discriminative power of the $$s$$
 * Create a node containing $$s$$
 * Split the dataset into child nodes using $$s$$
-* Recurse of the childs
+* Recurse on the childs
+
+The algorithm possesses a few base cases:
+
+* If a node only contains samples from the same class, create a leaf containing those examples.
+* If all the attributes of $$S$$ have been used, return the root of the tree.
 
 But how do we evaluate this discriminative power? There are many metrics used for this task. Here, we will take a look at the **Gini Index** and the** Information Gain **methods. Other methods can be found [here](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/#one).
 
@@ -77,6 +82,17 @@ In our previous example, we have the following results:
 For the split on class, we obtain a value of $$0.99$$. We thus split on the gender.
 
 ##### C4.5 Algorithm:
+
+The idea behind the C4.5 algorithm is the same as the ID3 \(it was created by the same person, Ross Quinlan\). 
+
+The algorithm is the following:
+
+* Check for any base cases, which are the following:
+  * A node containing samples from the same class if transformed into a leaf with that class's label
+  * None of the attributes provide information gain. Then create a node containing the most dominant class in the samples
+* Find the best split using _normalized_ information gain
+* Create a decision node using the best attribute $$s$$
+* Recurse of the child nodes obtaining with a split on s
 
 ##### Preventing overfit:
 
