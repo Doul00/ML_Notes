@@ -35,5 +35,9 @@ Most of the time whitening is done using PCA.
 
 Visually, it gives the following:
 
-Imagine we have a cloud of data points:![](/assets/ica_original.png)
+Imagine we have a cloud of data points:
+<figure align="center">
+	<img src="/assets/ica_original.png" alt="A transformation" height="500" width="500">
+	<figcaption>Cloud of points<a href="http://arnauddelorme.com/ica_for_dummies/">(Source)</a></figcaption>
+</figure>
 
