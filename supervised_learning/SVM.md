@@ -70,7 +70,7 @@ As we already saw above, the SVM built by looking for the maximum margin is very
 
 _Source: quantstart.com_
 
-As shown in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM. To prevent this problem, one can use a_ soft margin classifier_**,  **which allows for separation errors in order to prevent overfitting. The number of misclassified elements is tuned via a parameter $$C$$ . A small value of C means low bias but high variance \(a few errors on the training set but we tend to overfit\) while a higher value of $$C$$ means higher bias and lower variance.
+As shown in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM. To prevent this problem, one can use a_ soft margin classifier_**,  **which allows for separation errors in order to prevent overfitting. The number of misclassified elements is tuned via a parameter $$C$$ . 
 
 ##### II. When the data is not linearly separable
 
