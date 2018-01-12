@@ -37,7 +37,26 @@ Visually, it gives the following:
 
 Imagine we have a cloud of data points:
 <figure align="center">
-	<img src="/assets/ica_original.png" alt="A transformation" height="500" width="500">
+	<img src="/assets/ica_original.png" alt="A transformation" height="200" width="200">
 	<figcaption>Cloud of points<a href="http://arnauddelorme.com/ica_for_dummies/">(Source)</a></figcaption>
 </figure>
+
+We mix two clouds and obtain the following figure:
+
+<figure align="center">
+	<img src="/assets/ica_mixed.png" alt="A transformation" height="200" width="200">
+	<figcaption>Cloud of points<a href="http://arnauddelorme.com/ica_for_dummies/">(Source)</a></figcaption>
+</figure>
+
+After whitening, we get the following cloud:
+
+<figure align="center">
+	<img src="/assets/ica_whitened.png" alt="A transformation" height="200" width="200">
+	<figcaption>Cloud of points<a href="http://arnauddelorme.com/ica_for_dummies/">(Source)</a></figcaption>
+</figure>
+
+
+We can see that the variance is the same on both axis. The ICA algorithm will then just "rotate" the cloud back to its original representation.
+
+
 
