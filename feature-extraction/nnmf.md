@@ -1,4 +1,4 @@
-## Non-Negative Matrix Factorization
+## Non-Negative Matrix Factorization \(NNMF\)
 
 ### I. Motivation {#nnmf-motivation}
 

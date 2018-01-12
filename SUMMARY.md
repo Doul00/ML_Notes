@@ -10,4 +10,5 @@
   * [Perceptrons](supervised_learning/perceptron.md)
 * [Feature Extraction](feature-extraction.md)
   * [Non-Negative Matrix Factorization](feature-extraction/nnmf.md)
+  * [Independant Component Analysis](feature-extraction/independant-component-analysis.md)
 
