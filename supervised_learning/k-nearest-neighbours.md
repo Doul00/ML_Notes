@@ -1,4 +1,4 @@
-### K-Nearest Neighbours
+## K-Nearest Neighbours
 
 #### I. Applications
 

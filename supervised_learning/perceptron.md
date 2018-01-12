@@ -1,4 +1,4 @@
-### Perceptrons
+## Perceptrons
 
 #### I. Applications
 

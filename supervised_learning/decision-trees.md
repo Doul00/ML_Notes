@@ -1,4 +1,4 @@
-### Decision Trees
+## Decision Trees
 
 #### I. Applications
 
@@ -83,7 +83,7 @@ For the split on class, we obtain a value of $$0.99$$. We thus split on the gend
 
 ##### C4.5 Algorithm:
 
-The idea behind the C4.5 algorithm is the same as the ID3 \(it was created by the same person, Ross Quinlan\). 
+The idea behind the C4.5 algorithm is the same as the ID3 \(it was created by the same person, Ross Quinlan\).
 
 The algorithm is the following:
 
