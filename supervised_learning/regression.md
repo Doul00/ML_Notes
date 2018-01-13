@@ -43,11 +43,11 @@ $$
 
 This is the **Maximum Likelihood Estimator\(MLE\).** To prevent underflow, we will work with the log likelihood.
 
-By defining $$p(y^{(i)}|x^{(i)}) = \mathcal{N}(\theta^T x^{(i)}, \sigma^2)$$,  applying the MLE formula and maximizing over $$\theta$$, we see that the result is the same as minimizing the mean squared error: \(for details please see [http://cs229.stanford.edu/notes/cs229-notes1.pdf\)](http://cs229.stanford.edu/notes/cs229-notes1.pdf)
+By defining $$p(y^{(i)}|x^{(i)}) = \mathcal{N}(\theta^T x^{(i)}, \sigma^2)$$,  applying the MLE formula and maximizing over $$\theta$$, we see that the result is the same as minimizing the mean squared error:
 
 
 $$
-J(\theta) = \frac{1}{2} \sum_{i=1}^{n} (y^{(i)} - h_\theta^{(i)})^2
+J(\theta) = \frac{1}{N} \sum_{i=1}^{n} (y^{(i)} - h_\theta^{(i)})^2
 $$
 
 
@@ -61,7 +61,7 @@ First, we derive the cost function:
 
 
 $$
-\frac{\partial}{\partial{\theta_j}} J(\theta) = (Y - h_\theta)x_j
+\frac{\partial}{\partial{\theta}} J(\theta) = -\frac{2}{N}\sum_{i=1}^n (y^{(i)} - h_\theta)x^{(i)}
 $$
 
 
@@ -69,7 +69,7 @@ And the update rule is:
 
 
 $$
-\theta_j := \theta_j - \alpha \frac{\partial}{\partial{\theta_j}} J(\theta)
+\theta := \theta - \alpha \frac{\partial}{\partial{\theta}} J(\theta)
 $$
 
 
