@@ -45,7 +45,7 @@ Multilayer perceptrons \(MLP\) are _artificial neural networks_. They are used f
 
 A neuron is the base unit of an artificial neural network an is inspired from the brain's neurons. In the same way as biological neurons, they receive information from multiple sources and if the external signals reach a stimulation threshold, the neuron sends a signal to other neurons. We say that it was activated.
 
-Artificial neurons work in the same way. They receive inputs from the input layer, sum them and outputs a value thanks to an activation function. Mathematically, the sum of inputs is written as $$h(x) = w \cdot x + b$$ and the activation function as. This activation is non-linear, it helps the neural network break the linearity and learn non-linear features. There exist many activation functions, for more details you can take a look [here](http://arthurdouillard.com/2017/09/27/activation_functions/).
+Artificial neurons work in the same way. They receive inputs from the input layer, sum them and outputs a value thanks to an activation function. Mathematically, the sum of inputs is written as $$h(x) = w \cdot x + b$$ and the activation function as $$ z(x) = \sigma(h(x)) $$. This activation is non-linear, it helps the neural network break the linearity and learn non-linear features. There exist many activation functions, for more details you can take a look [here](http://arthurdouillard.com/2017/09/27/activation_functions/).
 
 #### II. Algorithm
 
