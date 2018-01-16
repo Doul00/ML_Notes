@@ -20,21 +20,21 @@ When the data is linearly separable, the goal is to compute the optimal hyperpla
 
 _Source: quantstart.com_
 
-Let's define our hyperplanes' equations: we will have $$W^T x + b = \delta $$ for the first hyperplane, $$H_0$$, and $$w^T x + b = - \delta $$ for the second hyperplane, $$H_1$$. Let's also suppose that we have a binary classification problem, with two classes, i.e $$y(x) = 1$$ or $$y(x) = -1$$.
+Let's define our hyperplanes' equations: we will have $$W^T x + b = \delta $$ for the first hyperplane, $$H_0$$, and $$w^T x + b = - \delta $$ for the second hyperplane, $$H_1$$ \(we will replace $$\delta$$ by 1 and -1 to simplify the problem\). Let's also suppose that we have a binary classification problem, with two classes, i.e $$y(x) = 1$$ or $$y(x) = -1$$.
 
 Thus, we want, for all $$x_i$$ in the data:
 
 
 $$
-W^T x_i + b \ge \delta \text{ or }  W^T x_i + b \le -\delta
+W^T x_i + b \ge 1 \text{ , } \forall y = 1 \\ \text{ or }  \\ W^T x_i + b \le -1 \text{ , } \forall y = -1
 $$
 
 
 which means that each point will be either on one side of $$H_1$$ or on the other side of $$H_0$$
 
-To classify a new example $$ x^* $$, we calculate $$W^T x^* + b = y^*$$ . If $$y^* \le -\delta $$ then the new example belongs to one class \(or to the other class if $$ y^* \ge \delta $$\).
+To classify a new example $$ x^* $$, we calculate $$W^T x^* + b = y^*$$ . If $$y^* \le -1$$ then the new example belongs to one class \(or to the other class if $$ y^* \ge 1$$\).
 
-![](/assets/svm.png)
+
 
 If we multiply the two-sides of the hyperplane's equations by $$y_i$$ and combine the two equations, we find that, for all $$x_i$$:
 
@@ -70,7 +70,7 @@ As we already saw above, the SVM built by looking for the maximum margin is very
 
 _Source: quantstart.com_
 
-As shown in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM. To prevent this problem, one can use a_ soft margin classifier_**,  **which allows for separation errors in order to prevent overfitting. The number of misclassified elements is tuned via a parameter $$C$$ . 
+As shown in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM. To prevent this problem, one can use a_ soft margin classifier_**,  **which allows for separation errors in order to prevent overfitting. The number of misclassified elements is tuned via a parameter $$C$$ .
 
 ##### II. When the data is not linearly separable
 
