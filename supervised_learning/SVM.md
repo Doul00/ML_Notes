@@ -156,8 +156,17 @@ Graphically, it gives something like this:
 * All the points falling on the good side of the hyperplane (but between the margin and the separator) will have $$0 \le \xi_i \le 1$$.
 * If $$\xi_i = 1$$, it means that our margin has the same equation as the separator (i.e $$wx - b = 0$$).
 * If $$\xi_i > 1$$, it means that the point is on the other side of the separator
+* Obviously, a negative $$\xi_i$$ does not make sense since it means that our point is already well classified.
 
 We indicate how strong we want our penalities to be by adding a parameter $$C$$. The higher the C, the stronger our penalities and the less our margins will move. We tend to get a hard-margin SVM in that case. However, the smaller the $$C$$, the more error we tolerate.
+
+Our optimization problem becomes:
+
+$$
+\min_{w, b, \xi} \frac{1}{2}w^Tw + C(\sum_{i=1}^m \xi_i) \\
+\text{subject to }  y_i(w x_i + b) \ge 1 - \xi_i \\  \forall x_i \text{ in } i\text{ ,..., } n\\
+\xi_i \ge 0
+$$
 
 
 ##### II. When the data is not linearly separable
