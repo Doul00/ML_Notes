@@ -8,7 +8,9 @@
   * [Ensemble Methods](supervised_learning/ensemble-methods.md)
   * [SVM](supervised_learning/SVM.md)
   * [Perceptrons](supervised_learning/perceptron.md)
-* [Feature Extraction](feature-extraction.md)
+* [Dimensionality Reduction and Feature Extraction](feature-extraction.md)
   * [Non-Negative Matrix Factorization](feature-extraction/nnmf.md)
   * [Independant Component Analysis](feature-extraction/independant-component-analysis.md)
+  * PCA
+  * LDA
 

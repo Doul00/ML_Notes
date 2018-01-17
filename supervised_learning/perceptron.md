@@ -31,7 +31,7 @@ For each example $$x_i$$ in the dataset, we perform the following steps:
 
 _Source: sebastianraschka.com_
 
-The main problem of the single layer perceptron is that it cannot solve problems **when the data is not linearly separable**. Indeed, we can see that $$f(x)$$ is a linear combination. This is why we use _multilayer perceptrons._
+The main problem of the single layer perceptron is that it cannot solve problems **when the data is not linearly separable**. Indeed, we can see that $$f(x)$$ is a linear combination of variables. This is why we use _multilayer perceptrons._
 
 ### Multilayer perceptrons
 
@@ -70,18 +70,18 @@ Let $$X$$ be our feature vector of size $$n$$ and $$W$$ be our weight matrix. Fo
 
 * We compute it's output function: $$h_i(x) = \sum_{i=1}^n x_i w_{ij} + b_i$$_  _
 
-_with _$$w_{ij}$$  being the weight mapping the output \(input in this case since we only have 1 hidden layer\) $$i$$ of the previous layer  to the neuron $$j$$, with $$b_i$$ being the bias for that neuron.
+_with _$$w_{ij}$$  being the weight mapping the output \(input in this case since we only have 1 hidden layer\) $$j$$ of the previous layer  to the neuron $$j$$, with $$b_i$$ being the bias for that neuron.
 
 * We apply the activation function $$\sigma$$: $$z_i(x) = \sigma(h_i(x))$$
 * It can be written as $$h(x) = W \cdot X + b$$ 
 
-We apply the same algorithm until we reach the output neurons.
+We apply the same step for all the neurons until we reach the output.
 
 ###### Backpropagation:
 
 The first time we compute the forward computation, the outputs won't match the desired results. It means that we have to update our weights and biases in order to make our neural network more efficient. This is done with the _backpropagation**. **_
 
-The idea behind this is that we compute the error at the output neurons and we _propagate_ the error back into the hidden layers in order to change the weights, so that our next forward computation will bring us closer to the result. The error is defined by a cost function and we want to minimize our error, i.e find the minimum \(the global minimum cannot be found directly, so most of the time we just accept a local minima\). In this way, backpropagation is analogue to the gradient descend.
+The idea behind this is that we compute the error at the output neurons and we _propagate_ the error back into the hidden layers in order to change the weights, so that our next forward computation will bring us closer to the result. The error is defined by a cost function and we want to minimize our error, i.e find the minimum \(the global minimum cannot be found directly, so most of the time we just accept a local minima\).
 
 ![](/assets/backprop.png)
 
