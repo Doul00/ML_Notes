@@ -35,7 +35,7 @@ $$
 which means that each point will be either on one side of $$H_1$$ or on the other side of $$H_0$$. For instance, in the picture below, all the red points are the points for which $$wx - b \ge 1 $$.
 
 <figure align="center">
-	<img src="/assets/svm/svm-margins.png" alt="Margins equations" height="300" width="300">
+	<img src="/assets/svm/svm-margins.png" alt="Margins equations" height="400" width="400">
 	<figcaption>Margins equations<a href="svm-tutorial.com">(Source)</a></figcaption>
 </figure>
 
@@ -56,6 +56,7 @@ Now, we need to find the hyperplane $$H_0$$ , with the equation $$wx - b = 0$$, 
 
 Let's write $$m$$ as the distance between the two margins. In order to get $$m$$, we need to project $$x_0$$ onto $$H_1$$. By translating $$x_0$$ using a vector of magnitude $$m$$ and perpendicular to $$H_1$$, we will be able to obtain this point.
 Hopefully, we already know a vector perpendicular to $$H_1$$, witch is $$w$$. But $$w$$ does not have the good magnitude. Let's first normalize it:
+
 $$
 u = \frac{w}{||w||}
 $$ 
@@ -76,7 +77,7 @@ wx_0 + m\frac{||w||^2}{||w||} - b = 1 \\
 wx_0 -b + m||w|| = 1 \\
 $$
 
-We know that $$x_0 \in H_1$$ thus $$Wx_0 - b = 1$$.
+We know that $$x_0 \in H_1$$ thus $$wx_0 - b = 1$$.
 Finally, we get:
 
 $$
