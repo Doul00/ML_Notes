@@ -89,7 +89,7 @@ Let's take the following neural network as an example. We have:
 
 * An input layer with two inputs, $$x_1 \text{ and } x_2$$.
 * A hidden layer with two neurons $$ h_1 \text{ and } h_2 $$. Let's write their activations as  $$z_1$$ and $$z_2$$
-* An output layer with two neurons $$  o_1 \text{ and } o_2 $$.  Let's write their dot product $$a_1$$ and $$a_2$$ with $$a_1 = z_1 v_{11} + z_2 v_{21} + bo_1$$
+* An output layer with two neurons $$  o_1 \text{ and } o_2 $$.  Let's write their input sum $$a_1$$ and $$a_2$$ with $$a_1 = z_1 v_{11} + z_2 v_{21} + bo_1$$
 * $$W \text{ and } V $$ are the weight matrices linking the layers.
 
 Here we define two error values using $$  y_1 \text{ and } y_2 $$, which are the desired outputs. We can write the error matrix as:
@@ -182,13 +182,21 @@ $$
 $$
 
 
-Or in simple words, "Error signal of the current layer for neuron $$j$$ multiplicated by output of the neuron $$i$$ in the previous layer".
+Or in simple words, "Error signal of the current layer for neuron $$j$$ multiplicated by activation of the neuron $$i$$ in the previous layer".
 
 * To compute the error signal of layer $$l$$:
 
 
 $$
-  \delta^l = \delta^{l+1} \cdot W^{l+1} \odot \sigma'(a^l)
+  \delta^l =  W^{l+1} \cdot \delta^{l+1} \odot \sigma'(a^l)
+$$
+
+
+* However, there's an exception for the output layer. For the last layer \(written $$L$$\), we have:
+
+
+$$
+\delta^L = \nabla_{o_l} E \odot \sigma'(a^L)
 $$
 
 
