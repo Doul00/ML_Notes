@@ -88,7 +88,7 @@ The idea behind this is that we compute the error at the output neurons and we _
 Let's take the following neural network as an example. We have:
 
 * An input layer with two inputs, $$x_1 \text{ and } x_2$$.
-* A hidden layer with two neurons $$ h_1 \text{ and } h_2 $$. Let's write their activations as  $$z_1$$ and $$z_2$$ with
+* A hidden layer with two neurons $$ h_1 \text{ and } h_2 $$. Let's write their activations as  $$z_1$$ and $$z_2$$
 * An output layer with two neurons $$  o_1 \text{ and } o_2 $$.  Let's write their dot product $$a_1$$ and $$a_2$$ with $$a_1 = z_1 v_{11} + z_2 v_{21} + bo_1$$
 * $$W \text{ and } V $$ are the weight matrices linking the layers.
 
