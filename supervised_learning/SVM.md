@@ -109,7 +109,8 @@ In our case, the constraint is $$y_i(wx_i - b) \ge 1$$, thus it is written:
 
 $$
 L(w, b, \alpha) = \frac{1}{2} w^Tw - \sum_{i=1}^N \alpha_i y_i(wx_i - b) - 1 \\
-L(w, b, \alpha) = \frac{1}{2} w^Tw - \sum_{i=1}^N \alpha_i y_i(wx_i - b) + \sum_{i=1}^N \alpha_i \text{ }(*)$$
+L(w, b, \alpha) = \frac{1}{2} w^Tw - \sum_{i=1}^N \alpha_i y_i(wx_i - b) + \sum_{i=1}^N \alpha_i \text{ }(*)
+$$
 
 We reach the minimum when $$\nabla L(w, b, \alpha) = 0$$  i.e:
 
@@ -166,6 +167,22 @@ $$
 \min_{w, b, \xi} \frac{1}{2}w^Tw + C(\sum_{i=1}^n \xi_i) \\
 \text{subject to }  y_i(w x_i + b) \ge 1 - \xi_i \\  \forall x_i \text{ in } i\text{ ,..., } n\\
 \xi_i \ge 0
+$$
+
+The Lagrangian is written:
+$$
+L(w, b, \xi, \alpha, \mu) = \frac{1}{2} w^Tw + C(\sum_{i=1}^N \xi_i) - \sum_{i=1}^N \alpha_i y_i(wx_i - b) + \sum_{i=1}^N \alpha_i - \\ \sum_{i=1} \xi_i \alpha_i - \sum_{i=1}^N \mu_i \xi_i
+
+\\
+
+L(w, b, \xi, \alpha, \mu) = \frac{1}{2} w^Tw + \sum_{i=1}^N \xi_i(C - \mu_i - \alpha_i) - \sum_{i=1}^N \alpha_i y_i(wx_i - b) + \sum_{i=1}^N \alpha_i \text{ } (**)
+$$
+
+We want to **maximize** $$(**)$$ with the constraints:
+
+$$
+\sum_{i=1}^N \alpha_i y_i = 0\\
+0 \le \alpha_i \le C
 $$
 
 
