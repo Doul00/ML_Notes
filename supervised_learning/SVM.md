@@ -35,7 +35,7 @@ $$
 which means that each point will be either on one side of $$H_1$$ or on the other side of $$H_0$$. For instance, in the picture below, all the red points are the points for which $$wx - b \ge 1 $$.
 
 <figure align="center">
-	<img src="/assets/svm/svm-margins.png" alt="Margins equations" height="400" width="400">
+	<img src="/assets/svm/svm-margins.png" alt="Margins equations" height="300" width="400">
 	<figcaption>Margins equations<a href="svm-tutorial.com">(Source)</a></figcaption>
 </figure>
 
@@ -88,15 +88,46 @@ The margin will grow when the norm of $$w$$ will decrease. Thus maximizing the m
 
 
 $$
-\text{minimize in } (w, b) \text{ ; } \\ ||w|| \\  \text{subject to }  y_i(w x_i + b) \ge 1 \\  \forall x_i \text{ in } i\text{ ,..., } n
+\min_{w} \frac{1}{2}w^Tw \\  \text{subject to }  y_i(w x_i + b) \ge 1 \\  \forall x_i \text{ in } i\text{ ,..., } n
 $$
 
 
-Solving this problem gives us the optimal hyperplane.
+Solving this problem gives us the optimal hyperplane. One interesting thing to notice is that our problem is _quadratic_ (its surface is a paraboloid), which means that it has **one** global minimum. This way, SVMs avoid the problems encountered in Neural nets with local optimums.
 
 ###### Solving the optimization problem
+In order to solve this problem, we will use the [Lagrangian multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier). Its goal is to minimize the objective function while integrating the constraint at the same time. For a visual explanation, you can check this [link](https://www.svm-tutorial.com/2016/09/duality-lagrange-multipliers/).
 
+The Lagrangian is written:
 
+$$
+L(x, \lambda, \nu) = f(x) + \sum_{i=i}^N \lambda_i f_i(x) + \sum_{i=i}^N \nu_i h_i(x) \\ \text{with } \lambda_i \ge 0 \text{ and } \nu_i \ge 0
+$$
+
+with  $$f_i(x) \le 0$$ being the inequality constraints and $$h_i(x) = 0$$ being the equality ones.
+
+In our case, the constraint is $$y_i(wx_i - b) \ge 1$$, thus it is written:
+
+$$
+L(w, b, \alpha) = \frac{1}{2} w^Tw - \sum_{i=1}^N \alpha_i y_i(wx_i - b) - 1 \\
+L(w, b, \alpha) = \frac{1}{2} w^Tw - \sum_{i=1}^N \alpha_i y_i(wx_i - b) + \sum_{i=1}^N \alpha_i \text{ }(*)$$
+
+We reach the minimum when $$\nabla L(w, b, \alpha) = 0$$  i.e:
+
+$$
+\frac{\partial L}{\partial w} = w - \sum_{i=1}^N \alpha_i y_i x_i = 0 \\
+\frac{\partial L}{\partial b} = \sum_{i=1}^N \alpha_i y_i  = 0 
+$$
+
+From the first equation we get: $$w = \sum_{i=1}^N \alpha_i y_i x_i$$, and from the second: $$\sum_{i=1}^N \alpha_i y_i  = 0$$
+It means that our $$w$$ is a linear combination of the $$ \alpha_i$$s , the class labels and the points.
+
+By substituting $$w$$ by $$\sum_{i=1}^N \alpha_i y_i x_i$$ in $$(*)$$ and developing, we reach the result:
+
+$$
+L(w, b, \alpha) = \sum_{i=1}^N \alpha_i - \frac{1}{2} \sum_{1 \le i,j \le N} \alpha_i \alpha_j y_i y_j (x_i \cdot x_j)
+$$
+
+We manage to get rid of the $$w$$ and $$b$$ parameters, we only have to maximize over the values of the $$\alpha$$ to solve our problem now.
 
 ###### Soft Margin Classifier
 
