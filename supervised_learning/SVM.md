@@ -119,7 +119,7 @@ $$
 $$
 
 From the first equation we get: $$w = \sum_{i=1}^N \alpha_i y_i x_i$$, and from the second: $$\sum_{i=1}^N \alpha_i y_i  = 0$$
-It means that our $$w$$ is a linear combination of the $$ \alpha_i$$s , the class labels and the points.
+It means that our $$w$$ is a linear combination of the $$ \alpha_i$$s , the class labels and the points. $$\alpha_i$$ represents the **contribution** of point $$x_i$$ in calculating the value of $$w$$. As we saw before, the margins are defined by the points lying on them, called the support vectors. Any point which is far from the margin does not define it, thus it does not influence the size of the margin. It means that all those points will have **zero** contribution when calculating the value of $$w$$. All their $$\alpha_i$$ will be equal to zero.
 
 By substituting $$w$$ by $$\sum_{i=1}^N \alpha_i y_i x_i$$ in $$(*)$$ and developing, we reach the result:
 
@@ -127,7 +127,7 @@ $$
 L(w, b, \alpha) = \sum_{i=1}^N \alpha_i - \frac{1}{2} \sum_{1 \le i,j \le N} \alpha_i \alpha_j y_i y_j (x_i \cdot x_j)
 $$
 
-We manage to get rid of the $$w$$ and $$b$$ parameters, we only have to maximize over the values of the $$\alpha$$ to solve our problem now.
+We managed to get rid of the $$w$$ and $$b$$ parameters, we only have to maximize over the values of the $$\alpha$$ to solve our problem now.
 
 ###### Soft Margin Classifier
 
