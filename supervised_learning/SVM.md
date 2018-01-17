@@ -119,7 +119,7 @@ $$
 $$
 
 From the first equation we get: $$w = \sum_{i=1}^N \alpha_i y_i x_i$$, and from the second: $$\sum_{i=1}^N \alpha_i y_i  = 0$$
-It means that our $$w$$ is a linear combination of the $$ \alpha_i$$s , the class labels and the points. $$\alpha_i$$ represents the **contribution** of point $$x_i$$ in calculating the value of $$w$$. As we saw before, the margins are defined by the points lying on them, called the support vectors. Any point which is far from the margin does not define it, thus it does not influence the size of the margin. It means that all those points will have **zero** contribution when calculating the value of $$w$$. All their $$\alpha_i$$ will be equal to zero.
+It means that our $$w$$ is a linear combination of the $$ \alpha_i$$s , the class labels and the points. $$\alpha_i$$ represents the **contribution** of point $$x_i$$ in calculating the value of $$w$$. As we saw before, the margins are defined by the points lying on them, called the support vectors. **Any point which is far from the margin does not define it, thus it does not influence the size of the margin**. It means that all those points will have **zero** contribution when calculating the value of $$w$$. All their $$\alpha_i$$ will be equal to zero.
 
 By substituting $$w$$ by $$\sum_{i=1}^N \alpha_i y_i x_i$$ in $$(*)$$ and developing, we reach the result:
 
@@ -127,7 +127,8 @@ $$
 L(w, b, \alpha) = \sum_{i=1}^N \alpha_i - \frac{1}{2} \sum_{1 \le i,j \le N} \alpha_i \alpha_j y_i y_j (x_i \cdot x_j)
 $$
 
-We managed to get rid of the $$w$$ and $$b$$ parameters, we only have to maximize over the values of the $$\alpha$$ to solve our problem now.
+We managed to get rid of the $$w$$ and $$b$$ parameters, we only have to maximize over the values of the $$\alpha$$ by respecting the constraint $$\sum_{i=1}^N \alpha_i y_i  = 0$$.
+
 
 ###### Soft Margin Classifier
 
@@ -139,7 +140,25 @@ As we already saw above, the SVM built by looking for the maximum margin is very
 </figure>
 
 
-As shown in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM. To prevent this problem, one can use a_ soft margin classifier_**,  **which allows for separation errors in order to prevent overfitting. The number of misclassified elements is tuned via a parameter $$C$$ .
+As shown in the example above, adding a single data point can completely change the hyperplane, thus impact the predictive power of the SVM. To prevent this problem, one can use a_ soft margin classifier_ which allows for separation errors in order to prevent overfitting.
+
+The intuition for this is that we would like to **move** our margins a little bit to allow them to classify points that are not on the correct side of the hyperplane (not respecting the condition $$wx - b \ge 1$$). However, we need to penalize those points using a value $$\xi_i$$ for each point $$x_i$$ not respecting the constraint.
+
+Going from the equation $$y_i(wx_i - b) \ge 1 $$, our first hyperplane, $$H_1$$, will have the equation $$wx - b\ge 1 - \xi_i$$ (by replacing $$y_i$$ by 1) and the second one will have the equation $$wx - b \ge -1 + \xi_i$$.
+
+Graphically, it gives something like this:
+
+<figure align="center">
+	<img src="/assets/svm/svm_soft_margins.png" alt="Moving the margins" height="300" width="300">
+	<figcaption>Moving the margins</figcaption>
+</figure>
+
+* All the points falling on the good side of the hyperplane (but between the margin and the separator) will have $$0 \le \xi_i \le 1$$.
+* If $$\xi_i = 1$$, it means that our margin has the same equation as the separator (i.e $$wx - b = 0$$).
+* If $$\xi_i > 1$$, it means that the point is on the other side of the separator
+
+We indicate how strong we want our penalities to be by adding a parameter $$C$$. The higher the C, the stronger our penalities and the less our margins will move. We tend to get a hard-margin SVM in that case. However, the smaller the $$C$$, the more error we tolerate.
+
 
 ##### II. When the data is not linearly separable
 
