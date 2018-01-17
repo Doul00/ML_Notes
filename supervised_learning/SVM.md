@@ -164,9 +164,4 @@ We indicate how strong we want our penalities to be by adding a parameter $$C$$.
 
 In order to solve problems where the data is not linearly separable, we move our data into higher dimensions. By projecting our data into a higher dimension, it is possible to find a hyperplane separating the value. To perform this "projection" operation, we use a **kernel function**.
 
----
-
-###
-
-[^1]: [Can be found here ](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/#one)
 
