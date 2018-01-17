@@ -135,7 +135,7 @@ We managed to get rid of the $$w$$ and $$b$$ parameters, we only have to maximiz
 As we already saw above, the SVM built by looking for the maximum margin is very sensitive to the support vectors.
 
 <figure align="center">
-	<img src="/assets/svm/svm-smc.png" alt="SVM margins" height="300" width="400">
+	<img src="/assets/svm/svm-smc.png" alt="SVM margins" height="300" width="500">
 	<figcaption>SVM Margins<a href="quantstart.com">(Source)</a></figcaption>
 </figure>
 
@@ -163,7 +163,7 @@ We indicate how strong we want our penalities to be by adding a parameter $$C$$.
 Our optimization problem becomes:
 
 $$
-\min_{w, b, \xi} \frac{1}{2}w^Tw + C(\sum_{i=1}^m \xi_i) \\
+\min_{w, b, \xi} \frac{1}{2}w^Tw + C(\sum_{i=1}^n \xi_i) \\
 \text{subject to }  y_i(w x_i + b) \ge 1 - \xi_i \\  \forall x_i \text{ in } i\text{ ,..., } n\\
 \xi_i \ge 0
 $$
