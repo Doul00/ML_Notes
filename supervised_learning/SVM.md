@@ -185,6 +185,8 @@ $$
 0 \le \alpha_i \le C
 $$
 
+The optimization problem is solved using the [SMO Algorithm](https://en.wikipedia.org/wiki/Sequential_minimal_optimization). You can check out the link if you're curious about it.
+
 
 ##### II. When the data is not linearly separable
 
