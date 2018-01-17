@@ -134,7 +134,7 @@ We manage to get rid of the $$w$$ and $$b$$ parameters, we only have to maximize
 As we already saw above, the SVM built by looking for the maximum margin is very sensitive to the support vectors.
 
 <figure align="center">
-	<img src="/assets/svm/svm-smc.png" alt="SVM margins" height="300" width="300">
+	<img src="/assets/svm/svm-smc.png" alt="SVM margins" height="300" width="400">
 	<figcaption>SVM Margins<a href="quantstart.com">(Source)</a></figcaption>
 </figure>
 
