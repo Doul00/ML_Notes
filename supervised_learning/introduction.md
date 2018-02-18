@@ -13,9 +13,7 @@ When an algorithm is underfitting, we say that the algorithm is **biaised**. The
 
 When an algorithm is overfitting, it will have a high variance. The **variance** represents the error caused by sensitivity to small changes in the training set. An algorithm with high variance will have a tendency to model the **noise **of the training data.
 
-Finding the right balance between bias an variance is called the **bias-variance tradeoff**.
-
-## Bias-Variance Tradeoff
+Finding the right balance between bias an variance is called the **bias-variance tradeoff**. 
 
 
 

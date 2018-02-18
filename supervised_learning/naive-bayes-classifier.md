@@ -48,9 +48,14 @@ with $$p_{k_i}^{x_i}$$ the probability that the class $$C_i$$ generated $$x_i$$.
 
 Thus, we can build our classifier by following these steps:
 
-1. For each class, compute the prior
-2. Depending on the assumption you make about the distribution of the data, compute its parameters \(for example mean and std-deviation for the Gaussian Naive Bayes\)
+1. For each class $$C_k$$, compute the prior $$p(C_k)$$
+2. Depending on the assumption you make about the distribution of the data, compute the likelihood $$p(x | C_k)$$ \(for example mean and std-deviation for the Gaussian Naive Bayes\)
 3. Once you have the posterior for each class, keep the one with the highest probability. This is called the MAP decision rule \(Maximum a Posteriori\). It can be written $$\hat{y} = \underset{(1, ..., k)}{\arg\max} \text{ }p(x|C_k) p(C_k)$$
+
+###### Limitations:
+
+* Of course one of the biggest limitations of the Naive Bayes is the fact that it assumes that all your features are independant, which is not always the case. It is always good to run a pearson correlation test in order to find to which degree your features are correlated.
+* It makes strong assumptions about the distribution of your data.
 
 
 
