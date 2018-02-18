@@ -50,8 +50,7 @@ Thus, we can build our classifier by following these steps:
 
 1. For each class $$C_k$$, compute the prior $$p(C_k)$$
 2. Depending on the assumption you make about the distribution of the data, compute the likelihood $$p(x | C_k)$$ \(for example mean and std-deviation for the Gaussian Naive Bayes\)
-3. Once you have the posterior for each class, keep the one with the highest probability. This is called the MAP decision rule \(Maximum a Posteriori\). It can be written $$\hat{y} = \underset{(1, ..., k)}{\text{argmax }} 
-     p(x|C_k)p(C_k)$$
+3. Once you have the posterior for each class, keep the one with the highest probability. This is called the MAP decision rule \(Maximum a Posteriori\). It can be written $$\hat{y} = \text{argmax }p(x|C_k)p(C_k)$$
 
 ###### Limitations:
 
