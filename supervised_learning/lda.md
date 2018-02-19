@@ -7,7 +7,7 @@ LDA is a **supervised** dimensionality reduction technique. In this way, it is s
 Its goal is to find the principal components which **maximize **the separation between the classes of the dataset and **minimize** the within those classes. The idea behind this is that we want to find the axes that give us the biggest difference between the classes's means \(the bigger the difference, the more the classes will be separated\), while taking in account the variance of the classes.
 
 <figure align="center">
-	<img src="/assets/lda/fisher-lda.jpg" alt="Separating classes using LDA" height="200" width="200">
+	<img src="/assets/lda/fisher-lda.jpg" alt="Separating classes using LDA" height="400" width="400">
 	<figcaption>Separating classes using LDA<a href="http://www.stackoverflow.com">(Source)</a></figcaption>
 </figure>
 
