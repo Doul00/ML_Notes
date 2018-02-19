@@ -60,3 +60,11 @@ To sum up, the steps of the algorithm are the following:
 4. Keep the $$k$$ eigenvectors with the highest eigenvalues
 5. Project the data using those eigenvectors
 
+
+##### Limitations
+
+There are some cases where LDA performs poorly:
+
+* When the distribution of the data is highly non-gaussian, LDA may not preserve its structure.
+* If the discriminatory information is not in the mean (i.e the classes have close means) but in the variance of the data, LDA will fail to discriminate them
+
